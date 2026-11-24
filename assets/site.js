@@ -262,7 +262,7 @@
     wireEmailForm(form, function (show) {
       var ep = C.signup && validUrl(C.signup.endpoint) ? C.signup.endpoint : null;
       if (!ep) { show("info", "Sign-up opens soon — nothing was sent yet. Please check back!"); return; }
-      fetch(ep, { method: "POST", body: new FormData(form), mode: "cors" })
+      fetch(ep, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" }, mode: "cors" })
         .then(function (r) { if (!r.ok) throw 0; form.reset(); show("ok", "You’re on the list! Check your inbox to confirm."); })
         .catch(function () { show("err", "Something went wrong and you weren’t signed up. Please try again."); });
     });
@@ -272,7 +272,7 @@
       var ep = C.contactForm && validUrl(C.contactForm.endpoint) ? C.contactForm.endpoint : null;
       if (!ep) { show("info", "The contact form isn’t connected yet, so nothing was sent."); return; }
       var btn = form.querySelector("button"); btn.disabled = true;
-      fetch(ep, { method: "POST", body: new FormData(form), mode: "cors" })
+      fetch(ep, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" }, mode: "cors" })
         .then(function (r) { if (!r.ok) throw 0; form.reset(); show("ok", "Thanks! Your message was sent. We’ll reply by email."); })
         .catch(function () { show("err", "Your message didn’t send. Please try again in a moment."); })
         .then(function () { btn.disabled = false; });

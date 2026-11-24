@@ -497,6 +497,7 @@ contact = """<section class="page-head centered-head"><div class="wrap"><p class
 </select>
 <label for="c-msg">Message</label>
 <textarea id="c-msg" name="message" rows="6" required></textarea>
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="vh" aria-hidden="true">
 <p class="muted small">For grown-ups only. We’ll use your email just to reply. See our <a href="privacy.html">Privacy notice</a>.</p>
 <button class="btn pill" type="submit">Send message</button>
 <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
