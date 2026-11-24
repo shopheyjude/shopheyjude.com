@@ -49,6 +49,9 @@ window.HJ_CONFIG = {
   // Contact form. null = form checks the fields but sends nothing (not wired yet).
   contactForm: { endpoint: null },
 
+  // Shopper-facing size names. The keys (XS, S, M, L) are the variant values sent to checkout.
+  sizeLabels: { XS: "XS · Twinkle (4–5)", S: "S · Star (6–7)", M: "M · Moon (8–10)", L: "L · Galaxy (10–12)" },
+
   products: {
     flower: {
       name: "Flower Set",
@@ -56,7 +59,7 @@ window.HJ_CONFIG = {
       status: "preorder",
       price: 32, // PLACEHOLDER from the business plan — confirm before launch
       shipBy: null, // e.g. "January 15, 2027" — required for pre-orders before launch
-      sizes: ["4T", "5T", "6-7", "8-9", "10-12"],
+      sizes: ["XS", "S", "M", "L"],
       soldOutSizes: [],
       material: "100% cotton knit. Soft, breathable and comfy all night.",
       fit: "Snug fit. Choose your child’s usual size — please don’t size up. For child’s safety, garment should fit snugly. This garment is not flame resistant. Loose-fitting garment is more likely to catch fire.",
@@ -67,7 +70,7 @@ window.HJ_CONFIG = {
       status: "preorder",
       price: 32, // PLACEHOLDER — confirm
       shipBy: null,
-      sizes: ["4T", "5T", "6-7", "8-9", "10-12"],
+      sizes: ["XS", "S", "M", "L"],
       soldOutSizes: [],
       material: "100% cotton knit. Soft, breathable and comfy all night.",
       fit: "Snug fit. Choose your child’s usual size — please don’t size up. For child’s safety, garment should fit snugly. This garment is not flame resistant. Loose-fitting garment is more likely to catch fire.",

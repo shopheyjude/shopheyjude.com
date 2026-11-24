@@ -20,6 +20,7 @@
   function orderable(p) {
     return !!(p && (p.status === "preorder" || p.status === "in-stock") && typeof p.price === "number" && p.price > 0);
   }
+  function sizeLabel(v) { return (C.sizeLabels && C.sizeLabels[v]) || v; }
   function statusLabel(p) {
     if (!p) return "Coming soon";
     if (p.status === "preorder") return "Pre-order";
@@ -33,7 +34,7 @@
   function readCart() {
     try {
       var c = JSON.parse(localStorage.getItem(KEY) || "[]");
-      return Array.isArray(c) ? c.filter(function (i) { return P[i.id] && i.size && i.qty > 0; }) : [];
+      return Array.isArray(c) ? c.filter(function (i) { return P[i.id] && i.size && i.qty > 0 && (P[i.id].sizes || []).indexOf(i.size) !== -1; }) : [];
     } catch (e) { return []; }
   }
   function writeCart(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} updateCount(); }
@@ -104,7 +105,7 @@
       if (sizes.indexOf(r.value) === -1) { lab.remove(); return; }
       if (out.indexOf(r.value) !== -1) {
         r.disabled = true; lab.classList.add("is-out");
-        lab.querySelector("span").setAttribute("aria-label", r.value + ", sold out");
+        lab.querySelector("span").setAttribute("aria-label", sizeLabel(r.value) + ", sold out");
       }
     });
     if (!orderable(p)) {
@@ -113,7 +114,7 @@
     }
     form.addEventListener("change", function () {
       var r = form.querySelector("input[type=radio]:checked");
-      if (chosen) chosen.textContent = r ? ": " + r.value : "";
+      if (chosen) chosen.textContent = r ? ": " + sizeLabel(r.value) : "";
       msg.textContent = ""; msg.classList.remove("ok");
     });
     form.addEventListener("submit", function (e) {
@@ -129,7 +130,7 @@
       }
       addToCart(id, r.value);
       msg.classList.add("ok");
-      msg.innerHTML = "Added " + esc(p.name) + ", size " + esc(r.value) + '. <a href="' + base + 'cart.html">View cart</a>';
+      msg.innerHTML = "Added " + esc(p.name) + ", size " + esc(sizeLabel(r.value)) + '. <a href="' + base + 'cart.html">View cart</a>';
     });
   });
 
@@ -205,7 +206,7 @@
       var total = 0;
       list.innerHTML = '<ul class="cart-list">' + c.map(function (i, n) {
         var p = P[i.id]; var line = (p.price || 0) * i.qty; total += line;
-        return '<li class="cart-item"><div><strong>' + esc(p.name) + "</strong><br><span class=\"muted\">Size " + esc(i.size) +
+        return '<li class="cart-item"><div><strong>' + esc(p.name) + "</strong><br><span class=\"muted\">Size " + esc(sizeLabel(i.size)) +
           " · " + esc(statusLabel(p)) + '</span></div>' +
           '<div class="qty" role="group" aria-label="Quantity for ' + esc(p.name) + " size " + esc(i.size) + '">' +
           '<button type="button" data-dec="' + n + '" aria-label="Decrease quantity">−</button><span aria-live="polite">' + i.qty +

@@ -399,3 +399,7 @@ tr:last-child td { border-bottom: 0; }
 @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
 .contact-art { border-radius: 22px; }
 .contact-alt { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line); }
+.size-note { margin: -8px 0 24px; text-align: center; }
+.size-opt span { white-space: nowrap; }
+.delivery .radio { display: block; } .delivery .radio input { vertical-align: -3px; margin-right: 8px; }
+th[scope="row"] { white-space: nowrap; }

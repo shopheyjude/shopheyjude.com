@@ -15,7 +15,8 @@ NAV = [
     ("faq.html", "FAQ"),
 ]
 
-SIZES = ["4T", "5T", "6-7", "8-9", "10-12"]
+SIZES = ["XS", "S", "M", "L"]
+SIZE_LABELS = {"XS": "XS · Twinkle (4–5)", "S": "S · Star (6–7)", "M": "M · Moon (8–10)", "L": "L · Galaxy (10–12)"}
 
 
 SITE_URL = "https://shopheyjude.com/"
@@ -193,7 +194,7 @@ PRODUCTS = {
 
 def size_radios(name):
     return "\n".join(
-        f'<label class="size-opt"><input type="radio" name="{name}" value="{s}"><span>{s}</span></label>' for s in SIZES
+        f'<label class="size-opt"><input type="radio" name="{name}" value="{s}"><span>{SIZE_LABELS[s]}</span></label>' for s in SIZES
     )
 
 
@@ -308,7 +309,7 @@ shop = f"""<section class="page-head">
   <div class="wrap">
     <p class="eyebrow">Shop Pajamas</p>
     <h1>Flowers or checkers?</h1>
-    <p class="lede">Two sets. Which one are you wearing for movie night?<br>100% cotton, sizes 4T–12.</p>
+    <p class="lede">Two sets. Which one are you wearing for movie night?<br>100% cotton, sizes XS–L (4–12).</p>
   </div>
 </section>
 <section class="section" style="padding-top:0" aria-label="Pajama sets">
@@ -371,7 +372,7 @@ def product(key):
   </div>
 </section>
 {signup("../")}"""
-    page(f"products/{p['slug']}.html", f"{p['label']} | Hey Jude", f"Hey Jude {p['label']}: {p['desc']} Sizes 4T–12.", body, "shop.html")
+    page(f"products/{p['slug']}.html", f"{p['label']} | Hey Jude", f"Hey Jude {p['label']}: {p['desc']} Sizes XS–L (4–12).", body, "shop.html")
 
 
 product("flower")
@@ -396,13 +397,14 @@ size = f"""<section class="page-head centered-head"><div class="wrap"><p class="
 <caption class="vh">Garment measurements by size, in inches</caption>
 <thead><tr><th scope="col">Size</th><th scope="col">Top chest width</th><th scope="col">Top length</th><th scope="col">Waist, relaxed</th><th scope="col">Inseam</th></tr></thead>
 <tbody>
-<tr><th scope="row">4T</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>\n<tr><th scope="row">5T</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>\n<tr><th scope="row">6-7</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>\n<tr><th scope="row">8-9</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>\n<tr><th scope="row">10-12</th><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><th scope="row">XS · Twinkle (4–5)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">S · Star (6–7)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">M · Moon (8–10)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">L · Galaxy (10–12)</th><td></td><td></td><td></td><td></td></tr>
 </tbody>
 </table></div>
+<p class="size-note">Between Moon and Galaxy? Both include size 10. Compare the measurements with a pair of PJs your child already loves.</p>
 <h2>Why snug?</h2>
 <p>Kids’ cotton pajamas are made to fit close to the body. It’s a safety rule for children’s sleepwear that isn’t flame resistant, so please don’t buy a size up to “grow into.”</p>
 </div></section>"""
-page("size-guide.html", "Size Guide | Hey Jude", "Hey Jude pajama sizes 4T–12 and how to measure.", size, "size-guide.html")
+page("size-guide.html", "Size Guide | Hey Jude", "Hey Jude pajama sizes XS–L (4–12) and how to measure.", size, "size-guide.html")
 
 # ---------------- OUR STORY ----------------
 story = f"""<section class="story-page"><div class="wrap story-intro">
@@ -434,7 +436,7 @@ page("our-story.html", "Our Story | Hey Jude", "Hey, I’m Jude. I started a paj
 faqs = [
     ("What are the pajamas made of?", "100% cotton. Soft, breathable and comfy all night."),
     ("Why should I choose cotton pajamas for my child?", "Cotton is soft against the skin and lets air move through the fabric. If your child tends to feel warm in pajamas, cotton is a good option to try for a more comfortable bedtime."),
-    ("What sizes do you make?", 'Sizes 4T, 5T, 6-7, 8-9 and 10-12. See the <a href="size-guide.html">Size Guide</a> for measurements.'),
+    ("What sizes do you make?", 'XS · Twinkle (4–5), S · Star (6–7), M · Moon (8–10) and L · Galaxy (10–12). See the <a href="size-guide.html">Size Guide</a> for measurements.'),
     ("Should I size up so they last longer?", "Please don’t. Kids’ cotton pajamas are designed to fit snugly — it’s a safety rule for children’s sleepwear — so choose your child’s usual size."),
     ("How do I wash them?", "Machine wash cold, inside out, with like colors. Tumble dry low or hang to dry. Skip the bleach."),
     ("Will they shrink?", "Cotton can shrink a little in a hot dryer. Washing cold and drying low keeps them closest to their original size."),
