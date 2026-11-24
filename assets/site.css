@@ -403,3 +403,12 @@ tr:last-child td { border-bottom: 0; }
 .size-opt span { white-space: nowrap; }
 .delivery .radio { display: block; } .delivery .radio input { vertical-align: -3px; margin-right: 8px; }
 th[scope="row"] { white-space: nowrap; }
+/* Footer: light oat, transparent logo (no tile) */
+.site-footer { background: var(--oat); color: var(--navy); border-top: 1px solid #E4DACB; }
+.site-footer a { color: var(--navy); }
+.site-footer h2 { color: #55548A; }
+.foot-tag, .foot-legal { color: #4A5463; }
+.foot-legal { border-top-color: #E0D5C4; }
+.site-footer :focus-visible { outline-color: var(--navy); }
+.foot-logo { background: none; padding: 0; border-radius: 0; }
+.foot-logo img { height: 120px; }
