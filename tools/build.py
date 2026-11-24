@@ -500,6 +500,7 @@ contact = """<section class="page-head centered-head"><div class="wrap"><p class
 <p class="muted small">For grown-ups only. We’ll use your email just to reply. See our <a href="privacy.html">Privacy notice</a>.</p>
 <button class="btn pill" type="submit">Send message</button>
 <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+<p class="contact-alt">Prefer email? Write to us at <a href="mailto:hello@shopheyjude.com">hello@shopheyjude.com</a>.</p>
 </form>
 <img class="contact-art" src="assets/img/Hey-Jude-Contact-Page.webp" width="1536" height="1024" alt="">
 </div></section>"""

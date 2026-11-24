@@ -44,7 +44,7 @@ window.HJ_CONFIG = {
   // Small "Preview image" tag on mockup photos. Set false once real product photos are in.
   labelMockups: false,
 
-  contactEmail: null,
+  contactEmail: "hello@shopheyjude.com",
 
   // Contact form. null = form checks the fields but sends nothing (not wired yet).
   contactForm: { endpoint: null },
