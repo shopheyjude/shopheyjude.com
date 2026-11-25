@@ -159,7 +159,7 @@ PRODUCTS = {
         "tag": "A little flower power for lights-out.",
         "desc": "A little flower power for lights-out, with a small Hey Jude logo on the chest.",
         "home_desc": "A little flower power for lights-out.",
-        "img": "assets/img/flower-set-mock.webp",
+        "img": "assets/img/flower-card-2026-11.webp",
         "alt": "Girl standing in a cozy room and smiling, wearing cream pajamas with a lavender flower print",
         "gallery": [
             ("assets/img/gallery/flower-01-lifestyle.webp", "Girl standing in a cozy room and smiling, wearing the Flower Set", "Front view"),
@@ -177,7 +177,7 @@ PRODUCTS = {
         "tag": "Checkers on the bottom, Hey Jude on top.",
         "desc": "Checker pants and a simple Hey Jude top, ready for couch forts and one more chapter.",
         "home_desc": "Ready for couch forts and one more chapter.",
-        "img": "assets/img/checker-set-mock.webp",
+        "img": "assets/img/checker-card-2026-11.webp",
         "alt": "Boy sitting on a sofa looking at a toy car, wearing a blue top and sage-and-cream checker pajama pants",
         "gallery": [
             ("assets/img/gallery/checker-01-lifestyle.webp", "Boy sitting on a sofa looking at a toy car, wearing the Checker Set", "Front view"),
@@ -251,8 +251,8 @@ def page(path, title, desc, body, current="", base=None, social=None):
 # ---------------- HOME ----------------
 home = f"""<section class="hero" aria-labelledby="hero-h">
   <picture class="hero-bg">
-    <source media="(max-width: 860px)" srcset="assets/img/hero-wide-mobile.webp">
-    <img src="assets/img/hero-wide.webp" srcset="assets/img/hero-wide-1200.webp 1200w, assets/img/hero-wide.webp 1942w" sizes="100vw" alt="Two kids laughing inside a blanket fort, one in lavender flower pajamas and one in sage checker pajama pants" fetchpriority="high">
+    <source media="(max-width: 860px)" srcset="assets/img/hero-fort-2026-11-mobile.webp">
+    <img src="assets/img/hero-fort-2026-11.webp" srcset="assets/img/hero-fort-2026-11-1200.webp 1200w, assets/img/hero-fort-2026-11.webp 1945w" sizes="100vw" alt="Two kids laughing in a blanket fort, one in ivory pajamas with a peach-and-green floral print and one in a blue top with sage checker pajama pants" fetchpriority="high">
   </picture>
   <span class="mock-tag hero-tag">Preview image</span>
   <div class="wrap hero-wrap">
