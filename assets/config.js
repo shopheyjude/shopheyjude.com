@@ -36,7 +36,7 @@ window.HJ_CONFIG = {
   localDelivery: {
     enabled: true,
     zips: ["80015"], // pilot: 80015 only. Do not add 80013 or 80016 yet.
-    fee: 7 // flat fee per order, no free-delivery threshold; one delivery window per week
+    fee: 0 // free local delivery in the Denver area (Kathryn, 25 Nov 2026); one delivery window per week
   },
 
   // Email signup ("Psst… new pajamas!"). null = form checks the address but sends nothing.
@@ -58,14 +58,14 @@ window.HJ_CONFIG = {
   contactForm: { endpoint: "https://heyjude-contact.maherkayali.workers.dev/" },
 
   // Shopper-facing size names. The keys (XS, S, M, L) are the variant values sent to checkout.
-  sizeLabels: { XS: "XS · Twinkle (4–5)", S: "S · Star (6–7)", M: "M · Moon (8–10)", L: "L · Galaxy (10–12)" },
+  sizeLabels: { XS: "XS · Twinkle (4–5)", S: "S · Star (6–7)", M: "M · Moon (8–10)", L: "L · Galaxy (11–12)" },
 
   products: {
     flower: {
       name: "Flower Set",
       // "preorder" | "in-stock" | "sold-out" | "coming-soon"
       status: "preorder",
-      price: 34.99, // confirmed by Kathryn 25 Nov 2026
+      price: 35, // confirmed by Kathryn 25 Nov 2026
       shipBy: null, // e.g. "January 15, 2027" — required for pre-orders before launch
       sizes: ["XS", "S", "M", "L"],
       soldOutSizes: [],
@@ -76,7 +76,7 @@ window.HJ_CONFIG = {
     checker: {
       name: "Checker Set",
       status: "preorder",
-      price: 34.99, // confirmed by Kathryn 25 Nov 2026
+      price: 35, // confirmed by Kathryn 25 Nov 2026
       shipBy: null,
       sizes: ["XS", "S", "M", "L"],
       soldOutSizes: [],

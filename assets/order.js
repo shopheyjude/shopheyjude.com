@@ -22,7 +22,8 @@
   var BASE = document.body.getAttribute("data-base") || "";
   function imgFor(it) { var m = CAT.productImages || {}; return it && m[it.product] ? BASE + m[it.product] : ""; }
   function skusFor(pid) { return (CAT.items || []).filter(function (it) { return it.product === pid; }); }
-  function money(c) { return "$" + (c / 100).toFixed(2); }
+  function money(c) { return "$" + (c % 100 === 0 ? String(c / 100) : (c / 100).toFixed(2)); }
+  function feeText(c) { return c === 0 ? "Free" : money(c); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function $(sel, el) { return (el || document).querySelector(sel); }
   function $$(sel, el) { return Array.prototype.slice.call((el || document).querySelectorAll(sel)); }
@@ -142,7 +143,7 @@
     var zipIn = $("[data-bag-zip]"), zipNote = $("[data-zip-note]"), delOpts = $("[data-del-opts]"), delLocal = $("[data-del-local]");
     var feeRow = $("[data-bag-fee-row]"), totalEl = $("[data-bag-total]"), totalLabel = $("[data-bag-total-label]");
     var FEE = Number.isInteger(LD.feeCents) && LD.feeCents >= 0 ? LD.feeCents : null;
-    $$("[data-del-fee], [data-bag-fee]").forEach(function (el) { if (FEE !== null) el.textContent = money(FEE); });
+    $$("[data-del-fee], [data-bag-fee]").forEach(function (el) { if (FEE !== null) el.textContent = feeText(FEE); });
     function zip5() { var z = (zipIn.value || "").trim(); return /^\d{5}(-\d{4})?$/.test(z) ? z.slice(0, 5) : null; }
     function localOK(z) { return !!(z && LD.enabled === true && FEE !== null && Array.isArray(LD.zips) && LD.zips.indexOf(z) !== -1); }
     function delivery() { var r = $("input[name=bag-delivery]:checked"); return r ? r.value : "ship"; }
@@ -154,7 +155,7 @@
       if (!ok && delivery() === "local") $("input[name=bag-delivery][value=ship]").checked = true;
       if (!zipIn.value.trim()) zipNote.textContent = "Enter your ZIP to see delivery options.";
       else if (!z) zipNote.textContent = "Please enter a 5-digit U.S. ZIP code.";
-      else zipNote.textContent = ok ? "Local delivery is available for " + z + " (" + money(FEE) + "), or choose shipping." : "Shipping only for " + z + ".";
+      else zipNote.textContent = ok ? (FEE === 0 ? "Free local delivery is available for " + z + ", or choose shipping." : "Local delivery is available for " + z + " (" + money(FEE) + "), or choose shipping.") : "Shipping only for " + z + ".";
       var local = ok && delivery() === "local";
       feeRow.hidden = !local;
       totalLabel.textContent = local ? "Total before any tax" : "Total before shipping";

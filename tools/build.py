@@ -16,7 +16,7 @@ NAV = [
 ]
 
 SIZES = ["XS", "S", "M", "L"]
-SIZE_LABELS = {"XS": "XS · Twinkle (4–5)", "S": "S · Star (6–7)", "M": "M · Moon (8–10)", "L": "L · Galaxy (10–12)"}
+SIZE_LABELS = {"XS": "XS · Twinkle (4–5)", "S": "S · Star (6–7)", "M": "M · Moon (8–10)", "L": "L · Galaxy (11–12)"}
 
 
 SITE_URL = "https://shopheyjude.com/"
@@ -146,8 +146,8 @@ def footer(base):
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="foot-logo" href="{base}index.html"><img src="{base}assets/img/hey-jude-logo.png" alt="Hey Jude — home"></a>
-        <p class="foot-tag">Pajamas by kids, for kids.</p>
+        <a class="foot-logo" href="{base}index.html"><img src="{base}assets/img/hey-jude-logo-stacked-2026-11.png" alt="Hey Jude — home"></a>
+        <p class="foot-tag">Cotton pajamas by kids, for kids.</p>
       </div>
       <div>
         <h2>Shop</h2>
@@ -175,7 +175,7 @@ def footer(base):
         </ul>
       </div>
     </div>
-    <p class="foot-legal">&copy; <span data-year>2026</span> Hey Jude Cotton Clothing Company. Shipping within the US.</p>
+    <p class="foot-legal">&copy; 2027 Hey Jude LLC.</p>
   </div>
 </footer>
 <script src="{base}assets/site.js?v={ASSET_V}"></script>
@@ -340,11 +340,11 @@ home = f"""<section class="hero" aria-labelledby="hero-h">
   <div class="wrap center">
     <p class="eyebrow">Why cotton</p>
     <h2 id="fabric-h">Comfy enough for every night</h2>
-    <p class="lede">“I picked cotton because I wanted soft pajamas that didn’t make me feel too hot.”</p>
+    <p class="lede">Kids want pajamas that feel soft and don’t run hot. That’s why every set is 100% cotton.</p>
     <div class="trio">
-      <div class="t-sage"><img src="assets/img/ill-soft-cotton.webp" alt=""><h3>Soft from collar to cuff</h3><p>The first thing I wanted my pajamas to be? Soft.</p></div>
-      <div class="t-lav"><img src="assets/img/ill-breathable.webp" alt=""><h3>Room to breathe</h3><p>Cotton lets air move through the fabric, even when you’re all curled up.</p></div>
-      <div class="t-blush"><img src="assets/img/ill-kid-picked-prints.webp" alt=""><h3>Kid-picked prints</h3><p>I picked flowers for my little sister and checkers for me.</p></div>
+      <div class="t-sage"><img src="assets/img/ill-soft-cotton.webp" alt=""><h3>Soft from collar to cuff</h3><p>Soft is the first thing kids ask for, so it’s where every set starts.</p></div>
+      <div class="t-lav"><img src="assets/img/ill-breathable.webp" alt=""><h3>Room to breathe</h3><p>Cotton lets air move through the fabric, so kids stay comfy even when they’re all curled up.</p></div>
+      <div class="t-blush"><img src="assets/img/ill-kid-picked-prints.webp" alt=""><h3>Kid-picked prints</h3><p>Every print is picked by a kid, so it’s something kids actually want to wear.</p></div>
     </div>
   </div>
 </section>
@@ -453,7 +453,7 @@ def product(key):
         <details open><summary>Fabric</summary><div class="inner" data-f="material"></div></details>
         <details><summary>Fit</summary><div class="inner" data-f="fit"></div></details>
         <details><summary>Care</summary><div class="inner" data-f="care"></div></details>
-        <details><summary>Shipping &amp; returns</summary><div class="inner">We ship within the US.<span data-local-only hidden> Local delivery is $7 for eligible addresses in ZIP code 80015.</span> Costs, timing and returns are on our <a href="../shipping-returns.html">Shipping &amp; Returns</a> page.</div></details>
+        <details><summary>Shipping &amp; returns</summary><div class="inner">We ship within the US.<span data-local-only hidden> Local delivery is free in the Denver area (ZIP code 80015).</span> Costs, timing and returns are on our <a href="../shipping-returns.html">Shipping &amp; Returns</a> page.</div></details>
       </div>
     </div>
   </div>
@@ -502,12 +502,11 @@ size = f"""<section class="page-head centered-head"><div class="wrap"><p class="
 <caption class="vh">Garment measurements by size, in inches</caption>
 <thead><tr><th scope="col">Size</th><th scope="col">Top chest width</th><th scope="col">Top length</th><th scope="col">Waist, relaxed</th><th scope="col">Inseam</th></tr></thead>
 <tbody>
-<tr><th scope="row">XS · Twinkle (4–5)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">S · Star (6–7)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">M · Moon (8–10)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">L · Galaxy (10–12)</th><td></td><td></td><td></td><td></td></tr>
+<tr><th scope="row">XS · Twinkle (4–5)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">S · Star (6–7)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">M · Moon (8–10)</th><td></td><td></td><td></td><td></td></tr>\n<tr><th scope="row">L · Galaxy (11–12)</th><td></td><td></td><td></td><td></td></tr>
 </tbody>
 </table></div>
-<p class="size-note">Between Moon and Galaxy? Both include size 10. Compare the measurements with a pair of PJs your child already loves.</p>
 <h2>Why snug?</h2>
-<p>Kids’ cotton pajamas are made to fit close to the body. It’s a safety rule for children’s sleepwear that isn’t flame resistant, so please don’t buy a size up to “grow into.”</p>
+<p>Kids’ cotton pajamas are made to fit close to the body. Keep in mind, cotton could shrink during regular washing.</p>
 </div></section>"""
 page("size-guide.html", "Kids’ Pajama Size Guide, Sizes 4–12 | Hey Jude",
      "Hey Jude kids’ pajama sizes 4–12, from XS · Twinkle to L · Galaxy, how to measure a pair your child already loves, and why cotton PJs fit snugly.",
@@ -545,13 +544,12 @@ page("our-story.html", "Our Story: Pajamas by Kids, for Kids | Hey Jude",
 faqs = [
     ("What are the pajamas made of?", "100% cotton. Soft, breathable and comfy all night."),
     ("Why should I choose cotton pajamas for my child?", "Cotton is soft against the skin and lets air move through the fabric. If your child tends to feel warm in pajamas, cotton is a good option to try for a more comfortable bedtime."),
-    ("What sizes do you make?", 'XS · Twinkle (4–5), S · Star (6–7), M · Moon (8–10) and L · Galaxy (10–12). See the <a href="size-guide.html">Size Guide</a> for measurements.'),
-    ("Should I size up so they last longer?", "Please don’t. Kids’ cotton pajamas are designed to fit snugly — it’s a safety rule for children’s sleepwear — so choose your child’s usual size."),
+    ("What sizes do you make?", 'XS · Twinkle (4–5), S · Star (6–7), M · Moon (8–10) and L · Galaxy (11–12). See the <a href="size-guide.html">Size Guide</a> for measurements.'),
     ("How do I wash them?", "Machine wash cold, inside out, with like colors. Tumble dry low or hang to dry. Skip the bleach."),
     ("Will they shrink?", "Cotton can shrink a little in a hot dryer. Washing cold and drying low keeps them closest to their original size."),
     ("Where do you ship?", 'Within the United States. Details are on our <a href="shipping-returns.html">Shipping &amp; Returns</a> page.'),
-    ("Do you deliver locally?", 'LOCAL::Local delivery is $7 for eligible addresses in ZIP code 80015. We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping. <a href="shipping-returns.html#local-delivery">Check your ZIP</a>.'),
-    ("Can I order now?", 'Yes — pre-orders for our first drop are open. Pick a size, add it to your bag and send a request. Nothing is charged today: we’ll email you to confirm availability, delivery and your total, and share payment details then.'),
+    ("Do you deliver locally?", 'LOCAL::Local delivery is free in the Denver area (ZIP code 80015). We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping. <a href="shipping-returns.html#local-delivery">Check your ZIP</a>.'),
+    ("Can I order now?", 'Yes — pre-orders for our first drop are open. Pick a size, add it to your bag and send a request. You won’t be charged when you submit a request. We’ll email you to confirm what’s in stock, how you’ll receive your order, and your total, along with instructions for paying.'),
     ("When will my pre-order ship?", 'We’ll share the timing when we email to confirm your pre-order, and we’ll let you know if anything changes.'),
     ("Who is Jude?", 'A kid who wanted better pajamas, so he started a company. <a href="our-story.html">Read our story</a>.'),
 ]
@@ -579,7 +577,7 @@ ship = """<section class="page-head"><div class="wrap"><p class="eyebrow">Shippi
 <p>Shipping costs and delivery times are shown at checkout before you pay.</p>
 <div data-local-only hidden>
 <h2 id="local-delivery">Local delivery</h2>
-<p>Local delivery is $7 for eligible addresses in ZIP code 80015. We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping.</p>
+<p>Local delivery is free in the Denver area (ZIP code 80015). We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping.</p>
 <form class="zip-check" data-zip-check novalidate>
 <label for="zip-in">Check your ZIP code</label>
 <div class="zip-row"><input id="zip-in" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required><button class="btn pill" type="submit">Check</button></div>
@@ -593,7 +591,7 @@ ship = """<section class="page-head"><div class="wrap"><p class="eyebrow">Shippi
 <p>Our full return policy will be posted here before pre-orders ship.</p>
 </div></section>"""
 page("shipping-returns.html", "Shipping, Local Delivery & Returns | Hey Jude",
-     "Hey Jude ships within the U.S., offers $7 local delivery in ZIP code 80015, and handles returns and size swaps by mail.", ship)
+     "Hey Jude ships within the U.S., offers free local delivery in the Denver area (ZIP 80015), and handles returns and size swaps by mail.", ship)
 
 # ---------------- CONTACT ----------------
 contact = """<section class="page-head centered-head"><div class="wrap"><p class="eyebrow">Contact</p><h1>Get in touch</h1>
@@ -665,9 +663,9 @@ cart = """<section class="page-head"><div class="wrap"><p class="eyebrow">Cart</
 <input id="cart-zip" class="cart-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5">
 <div class="size-msg" role="status" aria-live="polite" data-zip-msg></div>
 <label class="radio"><input type="radio" name="delivery" value="ship" checked> Ship it (US) <span class="muted">— cost shown at checkout</span></label>
-<label class="radio" data-local-option hidden><input type="radio" name="delivery" value="local"> Local delivery <span class="muted">— $7</span></label>
+<label class="radio" data-local-option hidden><input type="radio" name="delivery" value="local"> Local delivery <span class="muted">— free</span></label>
 </fieldset>
-<p class="sum-row" data-fee-row hidden><span>Local delivery</span><strong data-fee>$7</strong></p>
+<p class="sum-row" data-fee-row hidden><span>Local delivery</span><strong data-fee>Free</strong></p>
 <p class="sum-row sum-total"><span>Total before tax</span><strong data-total>$0</strong></p>
 <p class="muted small" data-ship-note-cart>Shipping and tax are added at checkout. Pre-orders ship together when the sets are ready.</p>
 <button class="btn btn-block" type="button" data-checkout>Checkout</button>
@@ -691,10 +689,10 @@ cart += """
     <fieldset class="del-opts" data-del-opts hidden>
       <legend class="vh">Delivery</legend>
       <label class="radio"><input type="radio" name="bag-delivery" value="ship" checked> Ship it <span class="muted">— cost confirmed by email</span></label>
-      <label class="radio" data-del-local><input type="radio" name="bag-delivery" value="local"> Local delivery <span class="muted">— <span data-del-fee>$7.00</span></span></label>
+      <label class="radio" data-del-local><input type="radio" name="bag-delivery" value="local"> Local delivery <span class="muted">— <span data-del-fee>Free</span></span></label>
     </fieldset>
   </div>
-  <p class="sum-row" data-bag-fee-row hidden><span>Local delivery</span><strong data-bag-fee>$7.00</strong></p>
+  <p class="sum-row" data-bag-fee-row hidden><span>Local delivery</span><strong data-bag-fee>Free</strong></p>
   <p class="sum-row sum-total"><span data-bag-total-label>Total before shipping</span><strong data-bag-total>$0.00</strong></p>
   <p class="muted small bag-note"><strong>This is a pre-order request, not a purchase.</strong> Nothing is charged today. We&rsquo;ll email you to confirm availability, delivery and your total, and share payment details then.</p>
   <div class="size-msg" role="status" aria-live="polite" tabindex="-1" data-bag-msg></div>
@@ -819,9 +817,9 @@ prio = {"index.html": "1.0", "shop.html": "0.9", "products/flower-set.html": "0.
     f"  <url><loc>{clean_url(pth)}</loc><lastmod>{_today}</lastmod><priority>{prio.get(pth, '0.5')}</priority></url>\n" for pth in SITEMAP) + "</urlset>\n")
 
 _prices = sorted({it["priceCents"] for it in _CATALOG.get("items", []) if it.get("available") is True and isinstance(it.get("priceCents"), int)})
-_price = ("$" + f"{_prices[0] / 100:.2f}" + (" and up" if len(_prices) > 1 else "") + " per set") if _prices else "price to be announced"
+_price = ("$" + (f"{_prices[0] // 100}" if _prices[0] % 100 == 0 else f"{_prices[0] / 100:.2f}") + (" and up" if len(_prices) > 1 else "") + " per set") if _prices else "price to be announced"
 _ld = _CATALOG.get("localDelivery", {})
-_local = (f"Local delivery is ${_ld['feeCents'] / 100:.2f} in ZIP code(s) {', '.join(_ld['zips'])}; everywhere else in the U.S. ships." if _ld.get("enabled") else "Ships within the U.S.")
+_local = (("Local delivery is free" if _ld.get('feeCents') == 0 else f"Local delivery is ${_ld['feeCents'] / 100:.2f}") + f" in the Denver area (ZIP {', '.join(_ld['zips'])}); everywhere else in the U.S. ships." if _ld.get("enabled") else "Ships within the U.S.")
 (ROOT / "llms.txt").write_text(f"""# Hey Jude Cotton Clothing Company
 
 > Hey Jude makes 100% cotton pajamas for kids in sizes 4–12, in prints picked by a kid. Tagline: Pajamas by kids, for kids. Website: {SITE}/
@@ -830,7 +828,7 @@ _local = (f"Local delivery is ${_ld['feeCents'] / 100:.2f} in ZIP code(s) {', '.
 - [Flower Set]({clean_url('products/flower-set.html')}): ivory 100% cotton button-front pajama top and pants with a peach-and-green floral print and a small navy logo on the chest pocket.
 - [Checker Set]({clean_url('products/checker-set.html')}): blue 100% cotton crewneck top with a small navy logo, with sage-and-cream checker pajama pants.
 - Price: {_price} (U.S. dollars).
-- Sizes: XS · Twinkle (4–5), S · Star (6–7), M · Moon (8–10), L · Galaxy (10–12). Kids' cotton sleepwear is made to fit snugly; choose the child's usual size, don't size up. [Size guide]({clean_url('size-guide.html')})
+- Sizes: XS · Twinkle (4–5), S · Star (6–7), M · Moon (8–10), L · Galaxy (11–12). Kids' cotton sleepwear is made to fit snugly; choose the child's usual size, don't size up. [Size guide]({clean_url('size-guide.html')})
 - Care: machine wash cold, inside out; tumble dry low or hang dry; no bleach.
 
 ## How ordering works

@@ -147,7 +147,7 @@
       status.className = "form-status show";
       if (!/^\d{5}$/.test(z)) { input.setAttribute("aria-invalid", "true"); status.classList.add("err"); status.textContent = "Please enter a 5-digit ZIP code."; input.focus(); return; }
       input.removeAttribute("aria-invalid");
-      if (localOK(z)) { status.classList.add("ok"); status.textContent = z + " is in our delivery area. Choose Local delivery ($" + LD.fee + ") in your cart, or choose shipping."; }
+      if (localOK(z)) { status.classList.add("ok"); status.textContent = z + " is in our delivery area. Choose " + (LD.fee === 0 ? "free local delivery" : "Local delivery ($" + LD.fee + ")") + " in your bag, or choose shipping."; }
       else { status.classList.add("info"); status.textContent = "Local delivery isn’t available for " + z + ", but you can still choose shipping."; }
       status.focus();
     });
@@ -186,7 +186,7 @@
       else if (saved.method === "local") { dset.querySelector("input[value=local]").checked = true; saved.method = null; }
       zipMsg.classList.remove("ok"); zipMsg.textContent = "";
       if (z.length === 5 && LD_ON) {
-        if (eligible) { zipMsg.classList.add("ok"); zipMsg.textContent = "Local delivery is available for " + z + " ($" + LD.fee + "), or choose shipping."; }
+        if (eligible) { zipMsg.classList.add("ok"); zipMsg.textContent = (LD.fee === 0 ? "Free local delivery is available for " + z : "Local delivery is available for " + z + " ($" + LD.fee + ")") + ", or choose shipping."; }
         else zipMsg.textContent = "Shipping only for " + z + ".";
       }
       var d = delivery();

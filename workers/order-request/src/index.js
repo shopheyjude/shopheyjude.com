@@ -103,14 +103,14 @@ function emailBody(rec) {
     "Name: " + rec.name,
     "Email: " + rec.email,
     "ZIP (US): " + rec.zip,
-    "Delivery: " + (rec.delivery === "local" ? "Local delivery — " + dollars(rec.deliveryFeeCents) : "Ship it — shipping cost to confirm"),
+    "Delivery: " + (rec.delivery === "local" ? "Local delivery — " + (rec.deliveryFeeCents === 0 ? "free" : dollars(rec.deliveryFeeCents)) : "Ship it — shipping cost to confirm"),
     "Received: " + rec.createdAt,
     "",
     "Items:"
   ];
   for (const l of rec.lines) L.push("- " + l.product + ", " + l.size + " [" + l.sku + "] × " + l.qty + " @ " + dollars(l.unitCents) + " = " + dollars(l.lineCents));
   L.push("", "Subtotal: " + dollars(rec.subtotalCents));
-  if (rec.delivery === "local") L.push("Local delivery: " + dollars(rec.deliveryFeeCents), "Total: " + dollars(rec.subtotalCents + rec.deliveryFeeCents) + " (before any tax)");
+  if (rec.delivery === "local") L.push("Local delivery: " + (rec.deliveryFeeCents === 0 ? "free" : dollars(rec.deliveryFeeCents)), "Total: " + dollars(rec.subtotalCents + rec.deliveryFeeCents) + " (before any tax)");
   else L.push("Shipping: to confirm", "Total before shipping and tax: " + dollars(rec.subtotalCents));
   L.push("", "Reply to this email to reach the customer.");
   return L.join("\r\n");

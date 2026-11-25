@@ -1,6 +1,6 @@
 {
   "_note": "Single source of truth for orderable items. A size can be requested only when available is true AND priceCents is a confirmed whole number of cents. Leave priceCents null until the price is confirmed. The site and the order-request Worker both read this file.",
-  "_priceNote": "$34.99 per set, all four sizes (Kathryn, 25 Nov 2026; was $32). Change priceCents/available here, run tools/build.py, push.",
+  "_priceNote": "$35 per set, all four sizes (Kathryn, 25 Nov 2026). Local delivery free in the Denver area (80015). Change priceCents/available/localDelivery here, run tools/build.py, push.",
   "testMode": false,
   "currency": "USD",
   "maxQtyPerItem": 5,
@@ -10,7 +10,7 @@
     "zips": [
       "80015"
     ],
-    "feeCents": 700
+    "feeCents": 0
   },
   "productImages": {
     "flower": "assets/img/flower-card-2026-11.webp",
@@ -23,7 +23,7 @@
       "productName": "Flower Set",
       "size": "XS",
       "sizeLabel": "XS · Twinkle (4–5)",
-      "priceCents": 3499,
+      "priceCents": 3500,
       "available": true
     },
     {
@@ -32,7 +32,7 @@
       "productName": "Flower Set",
       "size": "S",
       "sizeLabel": "S · Star (6–7)",
-      "priceCents": 3499,
+      "priceCents": 3500,
       "available": true
     },
     {
@@ -41,7 +41,7 @@
       "productName": "Flower Set",
       "size": "M",
       "sizeLabel": "M · Moon (8–10)",
-      "priceCents": 3499,
+      "priceCents": 3500,
       "available": true
     },
     {
@@ -49,8 +49,8 @@
       "product": "flower",
       "productName": "Flower Set",
       "size": "L",
-      "sizeLabel": "L · Galaxy (10–12)",
-      "priceCents": 3499,
+      "sizeLabel": "L · Galaxy (11–12)",
+      "priceCents": 3500,
       "available": true
     },
     {
@@ -59,7 +59,7 @@
       "productName": "Checker Set",
       "size": "XS",
       "sizeLabel": "XS · Twinkle (4–5)",
-      "priceCents": 3499,
+      "priceCents": 3500,
       "available": true
     },
     {
@@ -68,7 +68,7 @@
       "productName": "Checker Set",
       "size": "S",
       "sizeLabel": "S · Star (6–7)",
-      "priceCents": 3499,
+      "priceCents": 3500,
       "available": true
     },
     {
@@ -77,7 +77,7 @@
       "productName": "Checker Set",
       "size": "M",
       "sizeLabel": "M · Moon (8–10)",
-      "priceCents": 3499,
+      "priceCents": 3500,
       "available": true
     },
     {
@@ -85,8 +85,8 @@
       "product": "checker",
       "productName": "Checker Set",
       "size": "L",
-      "sizeLabel": "L · Galaxy (10–12)",
-      "priceCents": 3499,
+      "sizeLabel": "L · Galaxy (11–12)",
+      "priceCents": 3500,
       "available": true
     }
   ]
