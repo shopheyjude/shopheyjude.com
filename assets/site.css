@@ -530,3 +530,8 @@ input.vh { padding: 0 !important; border: 0 !important; margin: -1px !important;
 .story-photo { max-width: 300px; }
 .wrap.prose.story-body { margin-top: 8px; }
 .wrap.prose.story-body > h2:first-child { margin-top: 0; }
+/* Signup band: soft lavender to match the button and eyebrows */
+.section.signup-band { background: #ECEBF5; }
+.signup-band .form-status { background: none !important; padding: 6px 0 0; border-radius: 0; text-align: center; font-weight: 700; color: var(--navy); outline: none; box-shadow: none; }
+.signup-band .form-status:focus, .signup-band .form-status:focus-visible { outline: none; }
+.signup-band .form-status.err { color: #A3322F; }

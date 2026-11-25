@@ -76,7 +76,7 @@ HOME_SOCIAL = """<meta property="og:title" content="Cotton Pajamas by Kids, for 
 <meta property="og:site_name" content="Hey Jude Cotton Clothing Company">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shopheyjude.com/">
-<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share-photo-logo-v5.jpg">
+<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share-photo-logo-v7.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -84,7 +84,7 @@ HOME_SOCIAL = """<meta property="og:title" content="Cotton Pajamas by Kids, for 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cotton Pajamas by Kids, for Kids">
 <meta name="twitter:description" content="Soft cotton pajamas in prints picked by a kid.">
-<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share-photo-logo-v5.jpg">
+<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share-photo-logo-v7.jpg">
 <meta name="twitter:image:alt" content="Hey Jude logo above two kids laughing in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants.">"""
 
 
@@ -187,7 +187,7 @@ def footer(base):
 
 
 def signup(base):
-    return f"""<section class="section sage" id="drop-alerts" aria-labelledby="alerts-h" data-signup-section>
+    return f"""<section class="section signup-band" id="drop-alerts" aria-labelledby="alerts-h" data-signup-section>
   <div class="wrap">
     <div class="signup">
       <h2 id="alerts-h">Psst… new pajamas!</h2>
@@ -220,7 +220,7 @@ PRODUCTS = {
             ("assets/img/gallery/flower-02-side-pocket-2026-11.webp", "Side view of the Flower Set: ivory floral button-front top and matching pants", "Side view"),
             ("assets/img/gallery/flower-03-back-2026-11.webp", "Back view of the Flower Set: ivory pajamas with a peach-and-green floral print", "Back view"),
             ("assets/img/gallery/flower-04-detail-pocket-2026-11.webp", "Close-up of the Flower Set top: button front, white piping and a chest pocket with a small navy Hey Jude logo", "Garment close-up"),
-            ("assets/img/gallery/flower-05-print-2026-11.webp", "The Flower Set print: peach flowers and green leaves on ivory", "Print swatch"),
+            ("assets/img/gallery/flower-05-print-pocket-2026-11.webp", "The Flower Set print: peach flowers and green leaves on ivory", "Print swatch"),
         ],
         "print": "assets/img/flower-print.webp",
         "print_alt": "Close-up of the print: peach flowers and green leaves on ivory",
@@ -352,7 +352,7 @@ home = f"""<section class="hero" aria-labelledby="hero-h">
 
 <section class="section oat" aria-labelledby="story-h">
   <div class="wrap story story-teaser">
-    <a class="mock story-thumb wide" href="our-story.html" tabindex="-1" aria-hidden="true"><img src="assets/img/story-teaser-wide.webp" alt=""><span class="mock-tag">Preview image</span></a>
+    <a class="mock story-thumb wide" href="our-story.html" tabindex="-1" aria-hidden="true"><img src="assets/img/story-teaser-flower-2026-11.webp" alt=""><span class="mock-tag">Preview image</span></a>
     <div>
       <p class="eyebrow">Our story</p>
       <h2 id="story-h">Hey, I’m Jude.</h2>
