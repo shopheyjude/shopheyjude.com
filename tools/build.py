@@ -148,7 +148,7 @@ def footer(base):
       <div>
         <a class="foot-logo" href="{base}index.html"><img src="{base}assets/img/hey-jude-logo-stacked-2026-11.png" alt="Hey Jude — home"></a>
         <p class="foot-tag">Cotton pajamas by kids, for kids.</p>
-        <a class="foot-social" href="https://www.instagram.com/heyjude.us/" target="_blank" rel="noopener" aria-label="Hey Jude on Instagram"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="foot-social" href="https://www.instagram.com/heyjude.us/" target="_blank" rel="noopener" aria-label="Follow Hey Jude on Instagram"><span>Follow us on</span><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       </div>
       <div>
         <h2>Shop</h2>
@@ -211,15 +211,15 @@ PRODUCTS = {
         "tag": "A little flower power for lights-out.",
         "desc": "A little flower power for lights-out, with a small Hey Jude logo on the chest.",
         "home_desc": "A little flower power for lights-out.",
-        "img": "assets/img/flower-card-2026-11.webp",
+        "img": "assets/img/flower-card-pocket-2026-11.webp",
         "alt": "Girl standing in a cozy room and smiling, wearing ivory pajamas with a peach-and-green floral print",
         "seo_title": "Flower Set: Kids’ Cotton Button-Up Pajamas | Hey Jude",
         "seo_desc": "Ivory 100% cotton button-front pajamas with a peach-and-green floral print and a small navy logo on the pocket. Kids’ sizes 4–12. Pre-order now.",
         "gallery": [
-            ("assets/img/gallery/flower-01-front-2026-11.webp", "Girl standing in a cozy room and smiling, wearing the Flower Set: ivory pajamas with a peach-and-green floral print and a small navy logo on the chest pocket", "Front view"),
-            ("assets/img/gallery/flower-02-side-2026-11.webp", "Side view of the Flower Set: ivory floral button-front top and matching pants", "Side view"),
+            ("assets/img/gallery/flower-01-front-pocket-2026-11.webp", "Girl standing in a cozy room and smiling, wearing the Flower Set: ivory pajamas with a peach-and-green floral print and a small navy logo on the chest pocket", "Front view"),
+            ("assets/img/gallery/flower-02-side-pocket-2026-11.webp", "Side view of the Flower Set: ivory floral button-front top and matching pants", "Side view"),
             ("assets/img/gallery/flower-03-back-2026-11.webp", "Back view of the Flower Set: ivory pajamas with a peach-and-green floral print", "Back view"),
-            ("assets/img/gallery/flower-04-detail-2026-11.webp", "Close-up of the Flower Set top: button front, white piping and a chest pocket with a small navy Hey Jude logo", "Garment close-up"),
+            ("assets/img/gallery/flower-04-detail-pocket-2026-11.webp", "Close-up of the Flower Set top: button front, white piping and a chest pocket with a small navy Hey Jude logo", "Garment close-up"),
             ("assets/img/gallery/flower-05-print-2026-11.webp", "The Flower Set print: peach flowers and green leaves on ivory", "Print swatch"),
         ],
         "print": "assets/img/flower-print.webp",
@@ -312,8 +312,8 @@ def page(path, title, desc, body, current="", base=None, social=None, jsonld="")
 # ---------------- HOME ----------------
 home = f"""<section class="hero" aria-labelledby="hero-h">
   <picture class="hero-bg">
-    <source media="(max-width: 860px)" srcset="assets/img/hero-fort-2026-11-mobile.webp">
-    <img src="assets/img/hero-fort-2026-11.webp" srcset="assets/img/hero-fort-2026-11-1200.webp 1200w, assets/img/hero-fort-2026-11.webp 1945w" sizes="100vw" alt="Two kids laughing in a blanket fort, one in ivory pajamas with a peach-and-green floral print and one in a blue top with sage checker pajama pants" fetchpriority="high">
+    <source media="(max-width: 860px)" srcset="assets/img/hero-fort-pocket-2026-11-mobile.webp">
+    <img src="assets/img/hero-fort-pocket-2026-11.webp" srcset="assets/img/hero-fort-pocket-2026-11-1200.webp 1200w, assets/img/hero-fort-pocket-2026-11.webp 1945w" sizes="100vw" alt="Two kids laughing in a blanket fort, one in ivory pajamas with a peach-and-green floral print and one in a blue top with sage checker pajama pants" fetchpriority="high">
   </picture>
   <span class="mock-tag hero-tag">Preview image</span>
   <div class="wrap hero-wrap">
@@ -341,7 +341,7 @@ home = f"""<section class="hero" aria-labelledby="hero-h">
   <div class="wrap center">
     <p class="eyebrow">Why cotton</p>
     <h2 id="fabric-h">Comfy enough for every night</h2>
-    <p class="lede">Kids want pajamas that feel soft and don’t run hot. That’s why every set is 100% cotton.</p>
+    <p class="lede one-line">Kids want pajamas that feel soft and don’t run hot. That’s why every set is 100% cotton.</p>
     <div class="trio">
       <div class="t-sage"><img src="assets/img/ill-soft-cotton.webp" alt=""><h3>Soft from collar to cuff</h3><p>Soft is the first thing kids ask for, so it’s where every set starts.</p></div>
       <div class="t-lav"><img src="assets/img/ill-breathable.webp" alt=""><h3>Room to breathe</h3><p>Cotton lets air move through the fabric, so kids stay comfy even when they’re all curled up.</p></div>
@@ -507,7 +507,7 @@ size = f"""<section class="page-head centered-head"><div class="wrap"><p class="
 </tbody>
 </table></div>
 <h2>Why snug?</h2>
-<p>Kids’ cotton pajamas are made to fit close to the body. Keep in mind, cotton could shrink during regular washing.</p>
+<p class="one-line">Kids’ cotton pajamas are made to fit close to the body. Keep in mind, cotton could shrink during regular washing.</p>
 </div></section>"""
 page("size-guide.html", "Kids’ Pajama Size Guide, Sizes 4–12 | Hey Jude",
      "Hey Jude kids’ pajama sizes 4–12, from XS · Twinkle to L · Galaxy, how to measure a pair your child already loves, and why cotton PJs fit snugly.",
@@ -521,7 +521,7 @@ story = f"""<section class="story-page"><div class="wrap story-intro">
 <p class="lede">When I started picking out my own clothes, I wanted to pick my own pajamas, too. I had my own style. And if I was going to wear something every night, I wanted it to be something I’d actually choose.</p>
 <p>That’s why I started Hey Jude. I wanted to make pajamas that feel soft when you put them on and look fun enough that you’ll pull them out of the drawer first.</p>
 </div>
-<div class="mock story-photo-wrap"><img class="story-photo" src="assets/img/our-story-mock.webp" alt="Preview image: a kid’s hands choosing checker fabric next to a flower-print fabric and a pencil sketch of pajamas"><span class="mock-tag">Preview image</span></div>
+<div class="mock story-photo-wrap"><img class="story-photo" src="assets/img/our-story-flower-2026-11.webp" alt="A child’s hands beside a pajama sketch and folded floral and sage-check fabrics."><span class="mock-tag">Preview image</span></div>
 </div>
 <div class="wrap prose story-body">
 <h2>Pajamas by kids, for kids</h2>
@@ -558,7 +558,9 @@ faq_html = "\n".join(
     (f'<details data-local-only hidden><summary>{q}</summary><div class="inner">{a[7:]}</div></details>' if a.startswith("LOCAL::")
      else f'<details><summary>{q}</summary><div class="inner">{a}</div></details>') for q, a in faqs)
 faq = f"""<section class="page-head"><div class="wrap"><p class="eyebrow">FAQ</p><h1>Questions grown-ups ask</h1></div></section>
-<section class="section" style="padding-top:0"><div class="wrap prose"><div class="facts">
+<section class="section" style="padding-top:0"><div class="wrap prose">
+<figure class="page-photo pp-faq"><img src="assets/img/page-faq-2026-11.webp" width="1290" height="860" alt="Folded floral and sage-check fabric beside a soft measuring tape."></figure>
+<div class="facts">
 {faq_html}
 </div></div></section>
 {signup("")}"""
@@ -572,6 +574,7 @@ page("faq.html", "Kids’ Cotton Pajama FAQ: Sizing, Care & Shipping | Hey Jude"
 # ---------------- SHIPPING ----------------
 ship = """<section class="page-head"><div class="wrap"><p class="eyebrow">Shipping &amp; Returns</p><h1>Shipping &amp; returns</h1></div></section>
 <section class="section" style="padding-top:0"><div class="wrap prose">
+<figure class="page-photo pp-ship"><img src="assets/img/page-shipping-2026-11.webp" width="1290" height="860" alt="Hands folding ivory tissue around blue and sage-check pajamas in a kraft shipping box."></figure>
 <h2>Where we ship</h2>
 <p>We ship within the United States.</p>
 <h2>Cost and timing</h2>
@@ -630,9 +633,10 @@ page("contact.html", "Contact Hey Jude", "Questions about sizing, an order or an
 privacy = """<section class="page-head"><div class="wrap"><p class="eyebrow">Privacy</p><h1>Privacy notice</h1></div></section>
 <section class="section" style="padding-top:0"><div class="wrap prose">
 <p>Hey Jude is run by a family, and we keep what we collect to a minimum.</p>
+<figure class="page-photo pp-privacy"><img src="assets/img/page-privacy-2026-11.webp" width="1290" height="860" alt="Closed sage-green notebook with an ivory elastic band on a sunlit wooden desk."></figure>
 <h2>What we collect</h2>
 <ul>
-<li><strong>Drop alerts:</strong> if you sign up, your email address — and nothing else.</li>
+<li><strong>Email updates:</strong> if you sign up for new-pajama emails, your email address — and nothing else.</li>
 <li><strong>Your account:</strong> your email address and order history, so you can sign in and track orders.</li>
 <li><strong>Orders:</strong> checkout is handled by our payment provider, which collects what it needs to process payment and shipping. We receive your order and shipping details, not your full card number.</li>
 <li><strong>Website hosting:</strong> our host may keep standard technical logs (like IP address and browser type) to keep the site secure.</li>
@@ -765,7 +769,8 @@ page("sustainability.html", "Sustainability | Hey Jude", "How Hey Jude approache
 # ---------------- TERMS ----------------
 terms = """<section class="page-head"><div class="wrap"><p class="eyebrow">Terms of Use</p><h1>Terms of use</h1></div></section>
 <section class="section" style="padding-top:0"><div class="wrap prose">
-<p>These terms apply when you use this website or place an order with Hey Jude Cotton Clothing Company (“Hey Jude,” “we”). By using the site you agree to them.</p>
+<p>These terms apply when you use this website or place an order with Hey Jude, LLC (“Hey Jude,” “we”). By using the site you agree to them.</p>
+<figure class="page-photo pp-terms"><img src="assets/img/page-terms-2026-11.webp" width="1290" height="860" alt="Open notebook with blank ivory pages and a navy pencil on a wooden desk."></figure>
 <h2>Who can order</h2>
 <p>Orders are for adults 18 and over. Kids are welcome to browse with a grown-up.</p>
 <h2>Products, prices and colors</h2>
@@ -788,7 +793,7 @@ terms = """<section class="page-head"><div class="wrap"><p class="eyebrow">Terms
 <p>We may update these terms. The date below shows the latest version.</p>
 <h2>Questions</h2>
 <p>See our <a href="contact.html">Contact</a> page.</p>
-<p class="muted small">Last updated: November 24, 2026</p>
+<p class="muted small">Last updated: November 25, 2026</p>
 </div></section>"""
 page("terms.html", "Terms of Use | Hey Jude", "The terms for using shopheyjude.com.", terms)
 

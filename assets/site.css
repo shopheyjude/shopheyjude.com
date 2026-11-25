@@ -509,3 +509,24 @@ input.vh { padding: 0 !important; border: 0 !important; margin: -1px !important;
 .foot-tag { margin-top: -4px; }
 .foot-social { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-top: 10px; border-radius: 50%; color: var(--navy); }
 .foot-social:hover { background: rgba(31,42,68,.06); }
+/* one-line copy on wide screens */
+@media (min-width: 900px) { .one-line { white-space: nowrap; max-width: none !important; } .lede.one-line { max-width: none; } }
+/* footer Instagram */
+.foot-social { width: auto; height: 44px; gap: 8px; padding: 0 12px; border-radius: 22px; margin-top: 8px; text-decoration: none; font-size: .98rem; }
+.foot-social span { text-decoration: none; }
+/* page photos: FAQ, Shipping & Returns, Privacy, Terms */
+.wrap.prose > .page-photo { max-width: 760px; margin: 4px 0 32px; }
+.page-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px; }
+@media (max-width: 720px) {
+  .wrap.prose > .page-photo { margin: 0 0 22px; }
+  .page-photo img { aspect-ratio: 16 / 10; border-radius: 18px; }
+  .pp-faq img { object-position: 45% 55%; }
+  .pp-ship img { object-position: 55% 60%; }
+  .pp-privacy img { object-position: 50% 55%; }
+  .pp-terms img { object-position: 60% 50%; }
+}
+/* Our Story: eyebrow purple like other pages; tighter gap above body */
+.story-page p.eyebrow { color: var(--ink-lav); font-size: 1.02rem; }
+.story-photo { max-width: 300px; }
+.wrap.prose.story-body { margin-top: 8px; }
+.wrap.prose.story-body > h2:first-child { margin-top: 0; }
