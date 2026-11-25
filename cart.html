@@ -16,8 +16,9 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/site.css?v=bdfb9d3d">
-<script src="assets/config.js?v=bdfb9d3d"></script>
+<link rel="stylesheet" href="assets/site.css?v=8baf095a">
+<script src="assets/config.js?v=8baf095a"></script>
+<script src="assets/catalog.js?v=8baf095a"></script>
 </head>
 <body data-base="">
 <a class="skip" href="#main">Skip to content</a>
@@ -40,7 +41,7 @@
 </header>
 <main id="main">
 <section class="page-head"><div class="wrap"><p class="eyebrow">Cart</p><h1>Your cart</h1></div></section>
-<section class="section" style="padding-top:0"><div class="wrap cart-wrap">
+<section class="section" style="padding-top:0" data-legacy-cart><div class="wrap cart-wrap">
 <div data-cart-items><p class="muted">Your cart is empty.</p></div>
 <aside class="cart-summary" aria-labelledby="sum-h">
 <h2 id="sum-h">Summary</h2>
@@ -60,6 +61,38 @@
 <div class="size-msg" role="status" aria-live="polite" data-checkout-msg></div>
 <p><a href="shop.html">Keep shopping</a></p>
 </aside>
+</div></section>
+<section class="section bag-section" style="padding-top:0" data-bag hidden><div class="wrap bag-wrap">
+<div class="bag-main">
+  <div data-bag-items><p class="muted">Your bag is empty.</p></div>
+  <p><a href="shop.html">Keep shopping</a></p>
+</div>
+<aside class="cart-summary bag-summary" aria-labelledby="bag-sum-h">
+  <h2 id="bag-sum-h">Summary</h2>
+  <p class="sum-row"><span>Subtotal</span><strong data-bag-subtotal>$0.00</strong></p>
+  <p class="muted small">Shipping and any tax are confirmed by email. Nothing is charged on this site.</p>
+  <div class="size-msg" role="status" aria-live="polite" tabindex="-1" data-bag-msg></div>
+  <button class="btn pill btn-block" type="button" data-bag-start>Request to Order</button>
+  <form class="request-form" data-request-form hidden novalidate>
+    <h3 class="req-h">Where should we reply?</h3>
+    <label for="rq-name">Your name</label>
+    <input id="rq-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+    <label for="rq-email">Email</label>
+    <input id="rq-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+    <label for="rq-zip">U.S. shipping ZIP code</label>
+    <input id="rq-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" class="vh" aria-hidden="true">
+    <p class="muted small">For grown-ups only. We use these details just to reply about this request. See our <a href="privacy.html">Privacy notice</a>.</p>
+    <button class="btn pill btn-block" type="submit" data-request-send>Send request</button>
+    <div class="form-status" role="status" aria-live="polite" tabindex="-1" data-request-status></div>
+  </form>
+</aside>
+</div></section>
+<section class="section" style="padding-top:0" data-bag-done hidden><div class="wrap prose bag-done">
+  <h2>Request received</h2>
+  <p data-done-text></p>
+  <p class="muted">Request ID: <strong data-done-id></strong></p>
+  <p><a href="shop.html">Back to the shop</a></p>
 </div></section>
 </main>
 <footer class="site-footer">
@@ -98,6 +131,7 @@
     <p class="foot-legal">&copy; <span data-year>2026</span> Hey Jude Cotton Clothing Company. Shipping within the US.</p>
   </div>
 </footer>
-<script src="assets/site.js?v=bdfb9d3d"></script>
+<script src="assets/site.js?v=8baf095a"></script>
+<script src="assets/order.js?v=8baf095a"></script>
 </body>
 </html>

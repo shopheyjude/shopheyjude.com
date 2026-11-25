@@ -1,0 +1,20 @@
+# Hey Jude order-request handler. Deployed from GitHub (Workers Builds), root: workers/order-request
+name = "heyjude-order-request"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+# NOTIFY_TO is set as a secret in the Cloudflare dashboard (the repo is public; keep the inbox address out of it).
+keep_vars = true
+
+[vars]
+NOTIFY_FROM = "orders@shopheyjude.com"
+ALLOWED_ORIGINS = "https://shopheyjude.com,https://www.shopheyjude.com"
+ALLOWED_ORIGIN_SUFFIXES = ".heyjude-site.pages.dev"
+
+[[kv_namespaces]]
+binding = "ORDERS"
+id = "REPLACE_WITH_KV_ID"
+
+[[send_email]]
+name = "SEB"

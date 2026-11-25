@@ -9,6 +9,14 @@
 window.HJ_CONFIG = {
   hostname: "shopheyjude.com",
 
+  // First-drop ordering: "Request to Order" (no payment). Buyers send a request; an adult confirms
+  // stock and sends a Square invoice by hand. Orderable sizes and prices live ONLY in
+  // workers/order-request/src/catalog.json (available + confirmed priceCents).
+  ordering: {
+    enabled: true,
+    endpoint: "https://heyjude-order-request.maherkayali.workers.dev/"
+  },
+
   // Checkout. Leave endpoint null until Square is connected (see README → Checkout).
   checkout: {
     endpoint: null // https URL that turns the cart into a Square checkout link
@@ -26,7 +34,7 @@ window.HJ_CONFIG = {
   // leave this off rather than accept orders we can't deliver.
   // Never put the starting address in this file — it is public.
   localDelivery: {
-    enabled: true,
+    enabled: false,
     zips: ["80015"], // pilot: 80015 only. Do not add 80013 or 80016 yet.
     fee: 7 // flat fee per order, no free-delivery threshold; one delivery window per week
   },

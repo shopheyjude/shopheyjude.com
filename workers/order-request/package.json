@@ -1,0 +1,7 @@
+{
+  "name": "heyjude-order-request",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --import ./test/register.mjs --test test/worker.test.mjs" },
+  "devDependencies": { "wrangler": "^4" }
+}
