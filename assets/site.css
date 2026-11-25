@@ -468,3 +468,13 @@ input.vh { padding: 0 !important; border: 0 !important; margin: -1px !important;
 .del-opts { border: 0; margin: 4px 0 0; padding: 0; display: grid; gap: 6px; }
 .del-opts .radio { display: block; }
 .del-opts .radio input { vertical-align: -3px; margin-right: 8px; }
+/* Bag: product photo front and center */
+.bag-item { grid-template-columns: 96px 1fr auto auto; grid-template-areas: "img what qty line" "img what rm rm"; gap: 8px 18px; }
+.bag-thumb { grid-area: img; width: 96px; height: 120px; object-fit: cover; border-radius: 12px; background: #F1EAE0; align-self: start; }
+.bag-item.is-unavailable .bag-thumb { opacity: .5; }
+.bag-note { margin-top: 12px; }
+@media (max-width: 560px) {
+  .bag-item { grid-template-columns: 84px 1fr auto; grid-template-areas: "img what line" "img qty rm"; gap: 10px 14px; }
+  .bag-thumb { width: 84px; height: 105px; }
+}
+@media (min-width: 561px) { .bag-item { grid-template-columns: 120px 1fr auto auto; } .bag-thumb { width: 120px; height: 150px; } }

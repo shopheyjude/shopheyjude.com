@@ -1,7 +1,7 @@
 {
   "_note": "Single source of truth for orderable items. A size can be requested only when available is true AND priceCents is a confirmed whole number of cents. Leave priceCents null until the price is confirmed. The site and the order-request Worker both read this file.",
-  "_testNote": "TEST MODE (preview only, 24 Nov): every size open at the $32 placeholder so the flow can be tried. Before real ordering: set testMode false and replace with confirmed prices/sizes.",
-  "testMode": true,
+  "_priceNote": "Live 24 Nov 2026 at $32 per set, all four sizes, at Kathryn's go-live instruction. Change priceCents/available here, run tools/build.py, push.",
+  "testMode": false,
   "currency": "USD",
   "maxQtyPerItem": 5,
   "maxItemsPerRequest": 10,
@@ -11,6 +11,10 @@
       "80015"
     ],
     "feeCents": 700
+  },
+  "productImages": {
+    "flower": "assets/img/flower-card-2026-11.webp",
+    "checker": "assets/img/checker-card-2026-11.webp"
   },
   "items": [
     {

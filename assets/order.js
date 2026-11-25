@@ -19,6 +19,8 @@
   var BY = {};
   (CAT.items || []).forEach(function (it) { BY[it.sku] = it; });
   function orderable(it) { return !!(it && it.available === true && typeof it.priceCents === "number" && it.priceCents > 0 && Math.floor(it.priceCents) === it.priceCents); }
+  var BASE = document.body.getAttribute("data-base") || "";
+  function imgFor(it) { var m = CAT.productImages || {}; return it && m[it.product] ? BASE + m[it.product] : ""; }
   function skusFor(pid) { return (CAT.items || []).filter(function (it) { return it.product === pid; }); }
   function money(c) { return "$" + (c / 100).toFixed(2); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
@@ -171,6 +173,7 @@
         var it = BY[i.sku], ok = orderable(it);
         if (ok) total += it.priceCents * i.qty; else blocked = true;
         return '<li class="bag-item' + (ok ? "" : " is-unavailable") + '" data-sku="' + esc(i.sku) + '">' +
+          (imgFor(it) ? '<img class="bag-thumb" src="' + esc(imgFor(it)) + '" alt="' + esc(it.productName) + '" width="96" height="120">' : "") +
           '<div class="bag-what"><strong>' + esc(it.productName) + "</strong><span>" + esc(it.sizeLabel) + "</span>" +
           (ok ? '<span class="muted">' + money(it.priceCents) + " each</span>" : '<span class="na">Not available to request right now. Please remove it.</span>') + "</div>" +
           '<div class="qty-step" role="group" aria-label="Quantity for ' + esc(it.productName + ", " + it.sizeLabel) + '">' +

@@ -386,7 +386,7 @@ def product(key):
         </div>
         <div class="size-msg" role="status" aria-live="polite" tabindex="-1" data-o-msg></div>
         <div class="btn-row"><button class="btn pill" type="submit" data-o-add>Add to Bag</button></div>
-        <p class="ship-note">Nothing is charged online. Send a request and we&rsquo;ll email you to confirm availability, shipping and your total.</p>
+        <p class="ship-note"><strong>Pre-order:</strong> nothing is charged today. Send your request and we&rsquo;ll email you to confirm availability, delivery and your total, plus how to pay.</p>
       </form>
 
       <div class="facts">
@@ -469,7 +469,7 @@ faqs = [
     ("Will they shrink?", "Cotton can shrink a little in a hot dryer. Washing cold and drying low keeps them closest to their original size."),
     ("Where do you ship?", 'Within the United States. Details are on our <a href="shipping-returns.html">Shipping &amp; Returns</a> page.'),
     ("Do you deliver locally?", 'LOCAL::Local delivery is $7 for eligible addresses in ZIP code 80015. We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping. <a href="shipping-returns.html#local-delivery">Check your ZIP</a>.'),
-    ("Can I order now?", 'Yes — both sets are open for pre-order. Pick a size, add to cart, and we’ll ship when they’re ready. You can cancel a pre-order any time before it ships.'),
+    ("Can I order now?", 'Yes — pre-orders for our first drop are open. Pick a size, add it to your bag and send a request. Nothing is charged today: we’ll email you to confirm availability, delivery and your total, and share payment details then.'),
     ("When will my pre-order ship?", 'We show the expected ship timing on each product page and at checkout, and we’ll email you if anything changes.'),
     ("Who is Jude?", 'A kid who wanted better pajamas, so he started a company. <a href="our-story.html">Read our story</a>.'),
 ]
@@ -607,7 +607,7 @@ cart += """
   </div>
   <p class="sum-row" data-bag-fee-row hidden><span>Local delivery</span><strong data-bag-fee>$7.00</strong></p>
   <p class="sum-row sum-total"><span data-bag-total-label>Total before shipping</span><strong data-bag-total>$0.00</strong></p>
-  <p class="muted small">Shipping and any tax are confirmed by email. Nothing is charged on this site.</p>
+  <p class="muted small bag-note"><strong>This is a pre-order request, not a purchase.</strong> Nothing is charged today. We&rsquo;ll email you to confirm availability, delivery and your total, and share payment details then.</p>
   <div class="size-msg" role="status" aria-live="polite" tabindex="-1" data-bag-msg></div>
   <button class="btn pill btn-block" type="button" data-bag-start>Request to Order</button>
   <form class="request-form" data-request-form hidden novalidate>
