@@ -47,7 +47,7 @@ window.HJ_CONFIG = {
   contactEmail: "hello@shopheyjude.com",
 
   // Contact form. null = form checks the fields but sends nothing (not wired yet).
-  contactForm: { endpoint: null },
+  contactForm: { endpoint: "https://heyjude-contact.maherkayali.workers.dev/" },
 
   // Shopper-facing size names. The keys (XS, S, M, L) are the variant values sent to checkout.
   sizeLabels: { XS: "XS · Twinkle (4–5)", S: "S · Star (6–7)", M: "M · Moon (8–10)", L: "L · Galaxy (10–12)" },
