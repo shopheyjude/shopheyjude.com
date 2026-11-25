@@ -14,7 +14,7 @@ ALLOWED_ORIGIN_SUFFIXES = ".heyjude-site.pages.dev"
 
 [[kv_namespaces]]
 binding = "ORDERS"
-id = "REPLACE_WITH_KV_ID"
+id = "79aff7a835234d718c0adf1f27f7da70"
 
 [[send_email]]
 name = "SEB"
