@@ -26,7 +26,7 @@ window.HJ_CONFIG = {
   // leave this off rather than accept orders we can't deliver.
   // Never put the starting address in this file — it is public.
   localDelivery: {
-    enabled: false,
+    enabled: true,
     zips: ["80015"], // pilot: 80015 only. Do not add 80013 or 80016 yet.
     fee: 7 // flat fee per order, no free-delivery threshold; one delivery window per week
   },
