@@ -1,5 +1,7 @@
 {
   "_note": "Single source of truth for orderable items. A size can be requested only when available is true AND priceCents is a confirmed whole number of cents. Leave priceCents null until the price is confirmed. The site and the order-request Worker both read this file.",
+  "_testNote": "TEST MODE (preview only, 24 Nov): every size open at the $32 placeholder so the flow can be tried. Before real ordering: set testMode false and replace with confirmed prices/sizes.",
+  "testMode": true,
   "currency": "USD",
   "maxQtyPerItem": 5,
   "maxItemsPerRequest": 10,
@@ -10,8 +12,8 @@
       "productName": "Flower Set",
       "size": "XS",
       "sizeLabel": "XS · Twinkle (4–5)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     },
     {
       "sku": "HJ-FLW-S",
@@ -19,8 +21,8 @@
       "productName": "Flower Set",
       "size": "S",
       "sizeLabel": "S · Star (6–7)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     },
     {
       "sku": "HJ-FLW-M",
@@ -28,8 +30,8 @@
       "productName": "Flower Set",
       "size": "M",
       "sizeLabel": "M · Moon (8–10)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     },
     {
       "sku": "HJ-FLW-L",
@@ -37,8 +39,8 @@
       "productName": "Flower Set",
       "size": "L",
       "sizeLabel": "L · Galaxy (10–12)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     },
     {
       "sku": "HJ-CHK-XS",
@@ -46,8 +48,8 @@
       "productName": "Checker Set",
       "size": "XS",
       "sizeLabel": "XS · Twinkle (4–5)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     },
     {
       "sku": "HJ-CHK-S",
@@ -55,8 +57,8 @@
       "productName": "Checker Set",
       "size": "S",
       "sizeLabel": "S · Star (6–7)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     },
     {
       "sku": "HJ-CHK-M",
@@ -64,8 +66,8 @@
       "productName": "Checker Set",
       "size": "M",
       "sizeLabel": "M · Moon (8–10)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     },
     {
       "sku": "HJ-CHK-L",
@@ -73,8 +75,8 @@
       "productName": "Checker Set",
       "size": "L",
       "sizeLabel": "L · Galaxy (10–12)",
-      "priceCents": null,
-      "available": false
+      "priceCents": 3200,
+      "available": true
     }
   ]
 }

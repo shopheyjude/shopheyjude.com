@@ -87,7 +87,7 @@ export function validate(body, catalog = CATALOG) {
 
 function emailBody(rec) {
   const L = [
-    "New order request — " + rec.requestId,
+    (rec.test ? "TEST REQUEST — placeholder prices from the preview site. Do not invoice.\r\n\r\n" : "") + "New order request — " + rec.requestId,
     "",
     "Nothing has been charged and nothing is reserved.",
     "Next: confirm stock, then send a Square invoice by hand.",
@@ -109,7 +109,7 @@ function rawEmail(rec, env) {
     "From: " + hdr("Hey Jude Order Requests") + " <" + env.NOTIFY_FROM + ">",
     "To: <" + env.NOTIFY_TO + ">",
     "Reply-To: " + hdr(rec.name) + " <" + rec.email + ">",
-    "Subject: " + hdr("Order request " + rec.requestId + " — " + rec.name),
+    "Subject: " + hdr((rec.test ? "[TEST] " : "") + "Order request " + rec.requestId + " — " + rec.name),
     "Message-ID: <" + rec.requestId + "." + Date.now() + "@shopheyjude.com>",
     "Date: " + new Date().toUTCString(),
     "MIME-Version: 1.0",
@@ -165,7 +165,7 @@ export function createHandler(catalog = CATALOG) {
       rec = {
         requestId: id, hash, createdAt: new Date().toISOString(),
         name: d.name, email: d.email, zip: d.zip, lines: d.lines, subtotalCents: d.subtotalCents,
-        emailed: false, status: "new"
+        emailed: false, status: "new", test: catalog.testMode === true
       };
       await env.ORDERS.put("req:" + id, JSON.stringify(rec), { expirationTtl: TTL });
       await env.ORDERS.put(kk, JSON.stringify(rec), { expirationTtl: TTL });

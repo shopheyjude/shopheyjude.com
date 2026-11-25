@@ -20,11 +20,16 @@ test("unconfirmed price or unavailable size is rejected", () => {
   assert.equal(validate({ ...base, items: [{ sku: "A-M", qty: 2 }] }, cat).data.subtotalCents, 6400);
 });
 
-test("shipped catalog has nothing orderable until prices are confirmed", async () => {
-  const e = env();
-  const r = await worker.fetch(req({ requestKey: "k".repeat(20), name: "A", email: "a@b.co", zip: "77584", items: [{ sku: "HJ-FLW-M", qty: 1 }] }), e);
-  assert.equal(r.status, 422);
-  assert.equal(e.sent.length, 0);
+test("shipped catalog: only test-mode sizes are open, and requests are marked TEST", async () => {
+  const CAT = (await import("../src/catalog.json", { with: { type: "json" } })).default;
+  const open = CAT.items.filter((i) => i.available === true && Number.isInteger(i.priceCents) && i.priceCents > 0);
+  assert.ok(open.length === 0 || CAT.testMode === true, "sizes may only be open in test mode until prices are confirmed");
+  if (CAT.testMode === true) {
+    const e = env();
+    const r = await worker.fetch(req({ requestKey: "k".repeat(20), name: "A", email: "a@b.co", zip: "77584", items: [{ sku: open[0].sku, qty: 1 }] }), e);
+    assert.equal(r.status, 200);
+    assert.match(atob(e.sent[0].raw.split("Subject: =?UTF-8?B?")[1].split("?=")[0]), /^\[TEST\]/);
+  }
 });
 
 test("preview origin allowed, lookalike rejected", async () => {

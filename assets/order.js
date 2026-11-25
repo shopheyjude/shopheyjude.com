@@ -31,6 +31,14 @@
     return Array.prototype.map.call(a, function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
   }
 
+  if (CAT.testMode === true) {
+    var tb = document.createElement("div");
+    tb.className = "test-banner"; tb.setAttribute("role", "note");
+    tb.textContent = "Test mode: prices are placeholders and requests are marked TEST. Nothing is charged.";
+    var main = document.getElementById("main") || document.body;
+    main.insertBefore(tb, main.firstChild);
+  }
+
   /* ---------- Bag (this browser only) ---------- */
   var KEY = "hj-bag-v1";
   function readBag() {
