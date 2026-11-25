@@ -65,7 +65,7 @@ window.HJ_CONFIG = {
       name: "Flower Set",
       // "preorder" | "in-stock" | "sold-out" | "coming-soon"
       status: "preorder",
-      price: 32, // PLACEHOLDER from the business plan — confirm before launch
+      price: 34.99, // confirmed by Kathryn 25 Nov 2026
       shipBy: null, // e.g. "January 15, 2027" — required for pre-orders before launch
       sizes: ["XS", "S", "M", "L"],
       soldOutSizes: [],
@@ -76,7 +76,7 @@ window.HJ_CONFIG = {
     checker: {
       name: "Checker Set",
       status: "preorder",
-      price: 32, // PLACEHOLDER — confirm
+      price: 34.99, // confirmed by Kathryn 25 Nov 2026
       shipBy: null,
       sizes: ["XS", "S", "M", "L"],
       soldOutSizes: [],
