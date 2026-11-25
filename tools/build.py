@@ -20,6 +20,9 @@ SIZE_LABELS = {"XS": "XS · Twinkle (4–5)", "S": "S · Star (6–7)", "M": "M 
 
 
 SITE_URL = "https://shopheyjude.com/"
+import hashlib as _h, pathlib as _p
+_R = _p.Path(__file__).resolve().parent.parent
+ASSET_V = _h.md5(b"".join((_R / f).read_bytes() for f in ["assets/site.css", "assets/site.js", "assets/config.js"])).hexdigest()[:8]
 
 HOME_SOCIAL = """<meta property="og:title" content="Pajamas by Kids, for Kids">
 <meta property="og:description" content="Soft cotton pajamas in prints picked by a kid.">
@@ -59,8 +62,8 @@ def head(title, desc, base, social=None):
 <link rel="apple-touch-icon" href="{base}apple-touch-icon.png">
 {social}
 <link rel="stylesheet" href="{base}assets/fonts.css">
-<link rel="stylesheet" href="{base}assets/site.css">
-<script src="{base}assets/config.js"></script>
+<link rel="stylesheet" href="{base}assets/site.css?v={ASSET_V}">
+<script src="{base}assets/config.js?v={ASSET_V}"></script>
 </head>"""
 
 
@@ -128,7 +131,7 @@ def footer(base):
     <p class="foot-legal">&copy; <span data-year>2026</span> Hey Jude Cotton Clothing Company. Shipping within the US.</p>
   </div>
 </footer>
-<script src="{base}assets/site.js"></script>
+<script src="{base}assets/site.js?v={ASSET_V}"></script>
 </body>
 </html>
 """
