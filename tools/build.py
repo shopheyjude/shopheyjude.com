@@ -29,16 +29,16 @@ HOME_SOCIAL = """<meta property="og:title" content="Pajamas by Kids, for Kids">
 <meta property="og:site_name" content="Hey Jude Cotton Clothing Company">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shopheyjude.com/">
-<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11c.jpg">
+<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share-photo-lockup-v4.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Two kids laugh in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants.">
+<meta property="og:image:alt" content="Hey Jude logo with Happy Dreams. Better Tomorrow. above two kids laughing in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pajamas by Kids, for Kids">
 <meta name="twitter:description" content="Soft cotton pajamas in prints picked by a kid.">
-<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11c.jpg">
-<meta name="twitter:image:alt" content="Two kids laugh in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants.">"""
+<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share-photo-lockup-v4.jpg">
+<meta name="twitter:image:alt" content="Hey Jude logo with Happy Dreams. Better Tomorrow. above two kids laughing in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants.">"""
 
 
 def head(title, desc, base, social=None):
