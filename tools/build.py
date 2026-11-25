@@ -26,7 +26,7 @@ HOME_SOCIAL = """<meta property="og:title" content="Hey Jude | Pajamas by Kids, 
 <meta property="og:site_name" content="Hey Jude Cotton Clothing Company">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shopheyjude.com/">
-<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share.jpg">
+<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -34,7 +34,7 @@ HOME_SOCIAL = """<meta property="og:title" content="Hey Jude | Pajamas by Kids, 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Hey Jude | Pajamas by Kids, for Kids">
 <meta name="twitter:description" content="Soft Sleep. Happy Dreams. Better Tomorrows.">
-<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share.jpg">
+<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11.jpg">
 <meta name="twitter:image:alt" content="Two kids in flower and checker pajamas laugh in a blanket fort.">"""
 
 
