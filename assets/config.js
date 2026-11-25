@@ -39,8 +39,8 @@ window.HJ_CONFIG = {
 
   // Email signup ("Psst… new pajamas!"). null = form checks the address but sends nothing.
   signup: {
-    provider: null,
-    endpoint: null,
+    provider: "cloudflare", // saved in the order-request Worker's KV as signup:<email> (25 Nov 2026)
+    endpoint: "https://heyjude-order-request.maherkayali.workers.dev/signup",
     // true = show the form even though it isn't connected yet (private preview only).
     // Set false before going public: the form then stays hidden until endpoint is set
     // and a test signup has reached the list.

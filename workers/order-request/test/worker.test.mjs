@@ -85,3 +85,15 @@ test("local delivery only for eligible ZIPs, fee added, email shows it", async (
   const txt = new TextDecoder().decode(Uint8Array.from(body, (c) => c.charCodeAt(0)));
   assert.match(txt, /Local delivery — \$7\.00/); assert.match(txt, /Total: \$39\.00/);
 });
+
+test("signup stores email once and rejects bad input", async () => {
+  const kv = new Map();
+  const env = { ORDERS: { get: async (k) => kv.get(k) ?? null, put: async (k, v) => { kv.set(k, v); } }, ALLOWED_ORIGINS: "https://shopheyjude.com" };
+  const h = (await import("../src/index.js")).default;
+  const mk = (b) => new Request("https://x.workers.dev/signup", { method: "POST", headers: { Origin: "https://shopheyjude.com", "Content-Type": "application/json" }, body: JSON.stringify(b) });
+  assert.equal((await h.fetch(mk({ email: "A@Example.com" }), env)).status, 200);
+  assert.equal((await h.fetch(mk({ email: "a@example.com" }), env)).status, 200);
+  assert.equal([...kv.keys()].filter((k) => k.startsWith("signup:")).length, 1);
+  assert.equal((await h.fetch(mk({ email: "nope" }), env)).status, 422);
+  assert.equal((await h.fetch(mk({ email: "b@example.com", website: "x" }), env)).status, 400);
+});

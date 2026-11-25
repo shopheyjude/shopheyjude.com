@@ -263,11 +263,9 @@
     wireEmailForm(form, function (show) {
       var ep = C.signup && validUrl(C.signup.endpoint) ? C.signup.endpoint : null;
       if (!ep) { show("info", "Sign-up opens soon — nothing was sent yet. Please check back!"); return; }
-      var fd = new FormData(form);
-      if (C.signup.provider === "kit") { fd = new FormData(); fd.append("email_address", form.querySelector("input[type=email]").value.trim()); }
-      fetch(ep, { method: "POST", body: fd, headers: { "Accept": "application/json" }, mode: "cors" })
-        .then(function (r) { if (!r.ok) throw 0; return r.json().catch(function () { return {}; }); })
-        .then(function (j) { if (j && j.status && j.status !== "success") throw 0; form.reset(); show("ok", "You’re on the list! Check your inbox to confirm."); })
+      var hp = form.querySelector("input[name=website]");
+      fetch(ep, { method: "POST", body: JSON.stringify({ email: form.querySelector("input[type=email]").value.trim(), website: hp ? hp.value : "", source: location.pathname }), headers: { "Content-Type": "application/json", "Accept": "application/json" }, mode: "cors" })
+        .then(function (r) { if (!r.ok) throw 0; form.reset(); show("ok", "You’re on the list! We’ll email you when new pajamas are ready."); })
         .catch(function () { show("err", "Something went wrong and you weren’t signed up. Please try again."); });
     });
   });

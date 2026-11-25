@@ -152,6 +152,25 @@ export function createHandler(catalog = CATALOG) {
     if (req.method === "OPTIONS") return new Response(null, { status: ok ? 204 : 403, headers: cors });
     if (req.method !== "POST") return out({ ok: false, error: "not_found" }, 404);
     if (!ok) return out({ ok: false, error: "origin" }, 403);
+
+    // Email signups ("Psst… new pajamas!"): stored in KV as signup:<email>. Export with
+    // `wrangler kv key list --binding ORDERS --prefix signup:`.
+    if (new URL(req.url).pathname.replace(/\/+$/, "") === "/signup") {
+      if (!env.ORDERS) return out({ ok: false, error: "not_configured" }, 503);
+      let sb;
+      try {
+        if (Number(req.headers.get("Content-Length") || 0) > 2000) return out({ ok: false, error: "bad_request" }, 413);
+        sb = await req.json();
+      } catch (e) { return out({ ok: false, error: "bad_request" }, 400); }
+      if (!sb || sb.website) return out({ ok: false, error: "bad_request" }, 400); // honeypot
+      const email = String(sb.email || "").trim().toLowerCase();
+      if (email.length > 254 || !EMAIL_RE.test(email)) return out({ ok: false, error: "email" }, 422);
+      const k = "signup:" + email;
+      if (!(await env.ORDERS.get(k))) {
+        await env.ORDERS.put(k, JSON.stringify({ email, createdAt: new Date().toISOString(), source: String(sb.source || "").slice(0, 80) }));
+      }
+      return out({ ok: true }, 200);
+    }
     if (!env.ORDERS || !env.SEB || !env.NOTIFY_TO || !env.NOTIFY_FROM) return out({ ok: false, error: "not_configured" }, 503);
 
     let body;
