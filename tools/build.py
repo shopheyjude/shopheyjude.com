@@ -238,7 +238,7 @@ PRODUCTS = {
             ("assets/img/gallery/checker-01-front-small-logo.webp", "Boy sitting on a sofa looking at a toy car, wearing the Checker Set: a blue crewneck top with a small navy logo and sage-and-cream checker pants", "Front view"),
             ("assets/img/gallery/checker-02-side.webp", "Side view of the Checker Set being worn", "Side view"),
             ("assets/img/gallery/checker-03-back.webp", "Back view of the Checker Set being worn", "Back view"),
-            ("assets/img/gallery/checker-04-fabric-detail-logo.webp", "Close-up of the Checker Set: blue crewneck top with a small navy Hey Jude logo and sage-and-cream checker pants", "Garment close-up"),
+            ("assets/img/gallery/checker-04-closeup-repaired-2026-11.webp", "Close-up of the Checker Set: blue crewneck top with a small navy Hey Jude logo and sage-and-cream checker pants", "Garment close-up"),
             ("assets/img/gallery/checker-05-pattern.webp", "The Checker Set print: sage and cream checkerboard", "Print swatch"),
         ],
         "print": "assets/img/checker-print.webp",
