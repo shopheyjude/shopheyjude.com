@@ -473,8 +473,10 @@ ship = """<section class="page-head"><div class="wrap"><p class="eyebrow">Shippi
 </form>
 <p class="muted small">We confirm each address before delivering and email you once your delivery is scheduled.</p>
 </div>
-<h2>Returns</h2>
-<p>Our return policy will be posted here before the store opens.</p>
+<h2>Returns &amp; exchanges</h2>
+<p>Hey Jude is online only, so returns and exchanges happen by mail. There’s no store or drop-off location.</p>
+<p>To start a return or swap a size, email <a href="mailto:hello@shopheyjude.com">hello@shopheyjude.com</a> with your order number and what you’d like to do. We’ll reply with mailing instructions.</p>
+<p>Our full return policy will be posted here before pre-orders ship.</p>
 </div></section>"""
 page("shipping-returns.html", "Shipping & Returns | Hey Jude", "Hey Jude shipping and returns.", ship)
 

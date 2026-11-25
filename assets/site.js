@@ -283,14 +283,14 @@
     wireEmailForm(form, function (show) {
       var u = C.account && validUrl(C.account.signInUrl) ? C.account.signInUrl : null;
       if (u) { location.href = u; return; }
-      show("info", "Accounts open with the store. Nothing was sent yet.");
+      show("info", "Accounts open when ordering opens. Nothing was sent yet.");
     });
   });
   document.querySelectorAll("form[data-track-form]").forEach(function (form) {
     wireEmailForm(form, function (show) {
       var u = C.account && validUrl(C.account.orderStatusUrl) ? C.account.orderStatusUrl : null;
       if (u) { location.href = u; return; }
-      show("info", "Order tracking opens with the store. Your confirmation email will also have a tracking link.");
+      show("info", "Order tracking opens when ordering opens. Your confirmation email will also have a tracking link.");
     });
   });
 
