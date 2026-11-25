@@ -16,9 +16,9 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/site.css?v=a56db659">
-<script src="assets/config.js?v=a56db659"></script>
-<script src="assets/catalog.js?v=a56db659"></script>
+<link rel="stylesheet" href="assets/site.css?v=368a164a">
+<script src="assets/config.js?v=368a164a"></script>
+<script src="assets/catalog.js?v=368a164a"></script>
 </head>
 <body data-base="">
 <a class="skip" href="#main">Skip to content</a>
@@ -70,6 +70,18 @@
 <aside class="cart-summary bag-summary" aria-labelledby="bag-sum-h">
   <h2 id="bag-sum-h">Summary</h2>
   <p class="sum-row"><span>Subtotal</span><strong data-bag-subtotal>$0.00</strong></p>
+  <div class="bag-delivery">
+    <label for="rq-zip">U.S. ZIP code</label>
+    <input id="rq-zip" class="bag-zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" aria-describedby="zip-note" data-bag-zip>
+    <p class="muted small" id="zip-note" data-zip-note>Enter your ZIP to see delivery options.</p>
+    <fieldset class="del-opts" data-del-opts hidden>
+      <legend class="vh">Delivery</legend>
+      <label class="radio"><input type="radio" name="bag-delivery" value="ship" checked> Ship it <span class="muted">— cost confirmed by email</span></label>
+      <label class="radio" data-del-local><input type="radio" name="bag-delivery" value="local"> Local delivery <span class="muted">— <span data-del-fee>$7.00</span></span></label>
+    </fieldset>
+  </div>
+  <p class="sum-row" data-bag-fee-row hidden><span>Local delivery</span><strong data-bag-fee>$7.00</strong></p>
+  <p class="sum-row sum-total"><span data-bag-total-label>Total before shipping</span><strong data-bag-total>$0.00</strong></p>
   <p class="muted small">Shipping and any tax are confirmed by email. Nothing is charged on this site.</p>
   <div class="size-msg" role="status" aria-live="polite" tabindex="-1" data-bag-msg></div>
   <button class="btn pill btn-block" type="button" data-bag-start>Request to Order</button>
@@ -79,8 +91,6 @@
     <input id="rq-name" name="name" type="text" autocomplete="name" maxlength="100" required>
     <label for="rq-email">Email</label>
     <input id="rq-email" name="email" type="email" autocomplete="email" maxlength="200" required>
-    <label for="rq-zip">U.S. shipping ZIP code</label>
-    <input id="rq-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required>
     <input type="text" name="website" tabindex="-1" autocomplete="off" class="vh" aria-hidden="true">
     <p class="muted small">For grown-ups only. We use these details just to reply about this request. See our <a href="privacy.html">Privacy notice</a>.</p>
     <button class="btn pill btn-block" type="submit" data-request-send>Send request</button>
@@ -131,7 +141,7 @@
     <p class="foot-legal">&copy; <span data-year>2026</span> Hey Jude Cotton Clothing Company. Shipping within the US.</p>
   </div>
 </footer>
-<script src="assets/site.js?v=a56db659"></script>
-<script src="assets/order.js?v=a56db659"></script>
+<script src="assets/site.js?v=368a164a"></script>
+<script src="assets/order.js?v=368a164a"></script>
 </body>
 </html>

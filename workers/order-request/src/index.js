@@ -82,7 +82,15 @@ export function validate(body, catalog = CATALOG) {
     lines.push({ sku, product: c.productName, size: c.sizeLabel, qty, unitCents: c.priceCents, lineCents: line });
   }
   lines.sort((a, b) => a.sku.localeCompare(b.sku));
-  return { ok: true, data: { key, name, email, zip, lines, subtotalCents: subtotal } };
+  const method = body.delivery == null ? "ship" : cleanLine(body.delivery, 10);
+  if (method !== "ship" && method !== "local") return { ok: false, error: "delivery" };
+  let feeCents = 0;
+  if (method === "local") {
+    const ld = catalog.localDelivery || {};
+    if (!(ld.enabled === true && Array.isArray(ld.zips) && ld.zips.includes(zip.slice(0, 5)) && Number.isInteger(ld.feeCents) && ld.feeCents >= 0)) return { ok: false, error: "local_unavailable" };
+    feeCents = ld.feeCents;
+  }
+  return { ok: true, data: { key, name, email, zip, lines, subtotalCents: subtotal, delivery: method, deliveryFeeCents: feeCents } };
 }
 
 function emailBody(rec) {
@@ -94,13 +102,17 @@ function emailBody(rec) {
     "",
     "Name: " + rec.name,
     "Email: " + rec.email,
-    "Ship-to ZIP (US): " + rec.zip,
+    "ZIP (US): " + rec.zip,
+    "Delivery: " + (rec.delivery === "local" ? "Local delivery — " + dollars(rec.deliveryFeeCents) : "Ship it — shipping cost to confirm"),
     "Received: " + rec.createdAt,
     "",
     "Items:"
   ];
   for (const l of rec.lines) L.push("- " + l.product + ", " + l.size + " [" + l.sku + "] × " + l.qty + " @ " + dollars(l.unitCents) + " = " + dollars(l.lineCents));
-  L.push("", "Subtotal: " + dollars(rec.subtotalCents) + " (before shipping and tax)", "", "Reply to this email to reach the customer.");
+  L.push("", "Subtotal: " + dollars(rec.subtotalCents));
+  if (rec.delivery === "local") L.push("Local delivery: " + dollars(rec.deliveryFeeCents), "Total: " + dollars(rec.subtotalCents + rec.deliveryFeeCents) + " (before any tax)");
+  else L.push("Shipping: to confirm", "Total before shipping and tax: " + dollars(rec.subtotalCents));
+  L.push("", "Reply to this email to reach the customer.");
   return L.join("\r\n");
 }
 
@@ -152,7 +164,7 @@ export function createHandler(catalog = CATALOG) {
     const v = validate(body, catalog);
     if (!v.ok) return out({ ok: false, error: v.error, sku: v.sku || null }, 422);
     const d = v.data;
-    const hash = await sha256(JSON.stringify([d.name, d.email, d.zip, d.lines.map((l) => [l.sku, l.qty])]));
+    const hash = await sha256(JSON.stringify([d.name, d.email, d.zip, d.delivery, d.lines.map((l) => [l.sku, l.qty])]));
     const kk = "key:" + d.key;
 
     // Duplicate submission (double click, retry after a lost response): same key → same request.
@@ -165,6 +177,7 @@ export function createHandler(catalog = CATALOG) {
       rec = {
         requestId: id, hash, createdAt: new Date().toISOString(),
         name: d.name, email: d.email, zip: d.zip, lines: d.lines, subtotalCents: d.subtotalCents,
+        delivery: d.delivery, deliveryFeeCents: d.deliveryFeeCents,
         emailed: false, status: "new", test: catalog.testMode === true
       };
       await env.ORDERS.put("req:" + id, JSON.stringify(rec), { expirationTtl: TTL });

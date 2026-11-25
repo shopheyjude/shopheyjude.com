@@ -5,6 +5,13 @@
   "currency": "USD",
   "maxQtyPerItem": 5,
   "maxItemsPerRequest": 10,
+  "localDelivery": {
+    "enabled": true,
+    "zips": [
+      "80015"
+    ],
+    "feeCents": 700
+  },
   "items": [
     {
       "sku": "HJ-FLW-XS",

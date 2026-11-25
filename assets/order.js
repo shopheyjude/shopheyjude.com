@@ -135,13 +135,37 @@
     bag.hidden = false;
     var list = $("[data-bag-items]"), sub = $("[data-bag-subtotal]"), bmsg = $("[data-bag-msg]");
     var start = $("[data-bag-start]"), rf = $("[data-request-form]"), status = $("[data-request-status]"), send = $("[data-request-send]");
-    var done = $("[data-bag-done]"), sending = false;
+    var done = $("[data-bag-done]"), sending = false, lastSubtotal = 0;
+    var LD = CAT.localDelivery || {};
+    var zipIn = $("[data-bag-zip]"), zipNote = $("[data-zip-note]"), delOpts = $("[data-del-opts]"), delLocal = $("[data-del-local]");
+    var feeRow = $("[data-bag-fee-row]"), totalEl = $("[data-bag-total]"), totalLabel = $("[data-bag-total-label]");
+    var FEE = Number.isInteger(LD.feeCents) && LD.feeCents >= 0 ? LD.feeCents : null;
+    $$("[data-del-fee], [data-bag-fee]").forEach(function (el) { if (FEE !== null) el.textContent = money(FEE); });
+    function zip5() { var z = (zipIn.value || "").trim(); return /^\d{5}(-\d{4})?$/.test(z) ? z.slice(0, 5) : null; }
+    function localOK(z) { return !!(z && LD.enabled === true && FEE !== null && Array.isArray(LD.zips) && LD.zips.indexOf(z) !== -1); }
+    function delivery() { var r = $("input[name=bag-delivery]:checked"); return r ? r.value : "ship"; }
+    try { var savedZip = localStorage.getItem("hj-bag-zip"); if (savedZip && !zipIn.value) zipIn.value = savedZip; } catch (e) {}
+    function syncDelivery() {
+      var z = zip5(), ok = localOK(z);
+      delOpts.hidden = !z;
+      delLocal.hidden = !ok;
+      if (!ok && delivery() === "local") $("input[name=bag-delivery][value=ship]").checked = true;
+      if (!zipIn.value.trim()) zipNote.textContent = "Enter your ZIP to see delivery options.";
+      else if (!z) zipNote.textContent = "Please enter a 5-digit U.S. ZIP code.";
+      else zipNote.textContent = ok ? "Local delivery is available for " + z + " (" + money(FEE) + "), or choose shipping." : "Shipping only for " + z + ".";
+      var local = ok && delivery() === "local";
+      feeRow.hidden = !local;
+      totalLabel.textContent = local ? "Total before any tax" : "Total before shipping";
+      totalEl.textContent = money(lastSubtotal + (local ? FEE : 0));
+    }
+    zipIn.addEventListener("input", function () { try { localStorage.setItem("hj-bag-zip", zipIn.value.trim()); } catch (e) {} syncDelivery(); });
+    delOpts.addEventListener("change", syncDelivery);
 
     function render() {
       var b = readBag(), total = 0, blocked = false;
       if (!b.items.length) {
         list.innerHTML = '<p class="muted">Your bag is empty.</p>';
-        sub.textContent = "$0.00"; start.disabled = true; rf.hidden = true; return;
+        sub.textContent = "$0.00"; lastSubtotal = 0; syncDelivery(); start.disabled = true; rf.hidden = true; return;
       }
       list.innerHTML = '<ul class="bag-list">' + b.items.map(function (i) {
         var it = BY[i.sku], ok = orderable(it);
@@ -157,6 +181,8 @@
           '<button type="button" class="link-btn" data-remove>Remove</button></li>';
       }).join("") + "</ul>";
       sub.textContent = money(total);
+      lastSubtotal = total;
+      syncDelivery();
       start.disabled = blocked || sending;
       if (blocked) msg(bmsg, "err", "Remove the items marked “not available” to send your request.");
       else if (/\berr\b/.test(bmsg.className) && /not available/.test(bmsg.textContent)) { bmsg.className = bmsg.className.replace(/\s*(show|ok|err|info)\b/g, ""); bmsg.textContent = ""; }
@@ -186,16 +212,17 @@
 
     function bad(input, text) { input.setAttribute("aria-invalid", "true"); msg(status, "err", text, false); input.focus(); return false; }
     function check() {
-      $$("input", rf).forEach(function (i) { i.removeAttribute("aria-invalid"); });
+      $$("input", rf).forEach(function (i) { i.removeAttribute("aria-invalid"); }); zipIn.removeAttribute("aria-invalid");
       var n = $("#rq-name"), em = $("#rq-email"), z = $("#rq-zip");
       if (!n.value.trim()) return bad(n, "Please add your name.");
       if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]{2,}$/.test(em.value.trim())) return bad(em, "Please enter a valid email address, like name@example.com.");
-      if (!/^\d{5}(-\d{4})?$/.test(z.value.trim())) return bad(z, "Please enter a 5-digit U.S. ZIP code.");
+      if (!/^\d{5}(-\d{4})?$/.test(z.value.trim())) return bad(z, "Please enter a 5-digit U.S. ZIP code above.");
       return true;
     }
     function lock(on) {
       sending = on; send.disabled = on; send.textContent = on ? "Sending…" : "Send request";
       $$("input", rf).forEach(function (i) { i.readOnly = on; });
+      zipIn.readOnly = on; $$("input", delOpts).forEach(function (i) { i.disabled = on; });
       $$("button", list).forEach(function (bt) { bt.disabled = on; });
       $$("input", list).forEach(function (i) { i.readOnly = on; });
     }
@@ -215,6 +242,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           requestKey: b.key, name: $("#rq-name").value.trim(), email: $("#rq-email").value.trim(), zip: $("#rq-zip").value.trim(),
+          delivery: localOK(zip5()) ? delivery() : "ship",
           website: rf.elements.website.value, items: b.items
         })
       }).then(function (r) {
@@ -223,7 +251,7 @@
         clearTimeout(timer);
         if (res.status === 200 && res.j && res.j.ok && res.j.requestId) {
           // Saved on the server. Only now show the confirmation and empty the bag.
-          try { localStorage.removeItem(KEY); } catch (e2) {}
+          try { localStorage.removeItem(KEY); localStorage.removeItem("hj-bag-zip"); } catch (e2) {}
           updateCount();
           bag.hidden = true;
           $("[data-done-text]").textContent = DONE_TEXT;
@@ -240,6 +268,9 @@
         } else if (err === "key_reused") {
           var b2 = readBag(); writeBag(b2); // fresh key for the changed bag
           msg(status, "err", "Your bag changed. Please send the request again.", true);
+        } else if (err === "local_unavailable" || err === "delivery") {
+          $("input[name=bag-delivery][value=ship]").checked = true; syncDelivery();
+          msg(status, "err", "Local delivery isn’t available for that ZIP, so nothing was sent. We switched you to shipping — please send again.", true);
         } else if (err === "email" || err === "zip" || err === "name") {
           msg(status, "err", "Please check your name, email and ZIP code, then try again.", true);
         } else if (res.status === 403 || res.status === 503) {

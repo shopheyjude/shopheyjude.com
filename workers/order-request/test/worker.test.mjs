@@ -3,7 +3,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import worker, { validate } from "../src/index.js";
 
-const cat = { maxQtyPerItem: 5, maxItemsPerRequest: 10, items: [
+const cat = { maxQtyPerItem: 5, maxItemsPerRequest: 10, localDelivery: { enabled: true, zips: ["80015"], feeCents: 700 }, items: [
   { sku: "A-M", productName: "Flower Set", sizeLabel: "M", priceCents: 3200, available: true },
   { sku: "A-XS", productName: "Flower Set", sizeLabel: "XS", priceCents: null, available: true },
   { sku: "A-L", productName: "Flower Set", sizeLabel: "L", priceCents: 3200, available: false } ] };
@@ -70,4 +70,18 @@ test("same key with different items is refused", async () => {
 test("not configured → 503, nothing sent", async () => {
   const e = env(); delete e.ORDERS;
   assert.equal((await h.fetch(req(good), e)).status, 503);
+});
+
+test("local delivery only for eligible ZIPs, fee added, email shows it", async () => {
+  const base = { requestKey: "local-key-00000000001", name: "Ann", email: "ann@example.com", items: [{ sku: "A-M", qty: 1 }] };
+  assert.equal(validate({ ...base, zip: "77584", delivery: "local" }, cat).error, "local_unavailable");
+  assert.equal(validate({ ...base, zip: "80015", delivery: "drone" }, cat).error, "delivery");
+  const v = validate({ ...base, zip: "80015", delivery: "local" }, cat);
+  assert.equal(v.data.deliveryFeeCents, 700);
+  const e = env();
+  const r = await h.fetch(req({ ...base, zip: "80015", delivery: "local" }), e);
+  assert.equal(r.status, 200);
+  const raw = e.sent[0].raw; const body = atob(raw.split("\r\n\r\n").slice(1).join("").replace(/\r\n/g, ""));
+  const txt = new TextDecoder().decode(Uint8Array.from(body, (c) => c.charCodeAt(0)));
+  assert.match(txt, /Local delivery — \$7\.00/); assert.match(txt, /Total: \$39\.00/);
 });
