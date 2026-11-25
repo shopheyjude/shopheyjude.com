@@ -28,14 +28,12 @@ window.HJ_CONFIG = {
     orderStatusUrl: null
   },
 
-  // Local hand delivery (pilot). OFF until drive times from the private starting point
-  // are checked (30-minute one-way limit) and the weekly schedule is approved.
-  // Checkout can only check ZIP codes, so if any 80015 address is outside the limit,
-  // leave this off rather than accept orders we can't deliver.
+  // Local hand delivery. ZIPs within roughly a 45-minute one-way drive of 80015,
+  // estimated from ZIP-center distance (<= 21 mi); large rural ZIPs left out.
   // Never put the starting address in this file — it is public.
   localDelivery: {
     enabled: true,
-    zips: ["80015"], // pilot: 80015 only. Do not add 80013 or 80016 yet.
+    zips: ["80002", "80010", "80011", "80012", "80013", "80014", "80015", "80016", "80017", "80018", "80019", "80022", "80030", "80033", "80104", "80108", "80109", "80110", "80111", "80112", "80113", "80116", "80120", "80121", "80122", "80123", "80124", "80125", "80126", "80127", "80128", "80129", "80130", "80134", "80138", "80202", "80203", "80204", "80205", "80206", "80207", "80209", "80210", "80211", "80212", "80214", "80215", "80216", "80218", "80219", "80220", "80221", "80222", "80223", "80224", "80226", "80227", "80228", "80229", "80230", "80231", "80232", "80235", "80236", "80237", "80238", "80239", "80241", "80246", "80247", "80249", "80260", "80640"], // ~45-minute drive from 80015 (25 Nov 2026)
     fee: 0 // free local delivery in the Denver area (Kathryn, 25 Nov 2026); one delivery window per week
   },
 

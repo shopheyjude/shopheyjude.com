@@ -453,7 +453,7 @@ def product(key):
         <details open><summary>Fabric</summary><div class="inner" data-f="material"></div></details>
         <details><summary>Fit</summary><div class="inner" data-f="fit"></div></details>
         <details><summary>Care</summary><div class="inner" data-f="care"></div></details>
-        <details><summary>Shipping &amp; returns</summary><div class="inner">We ship within the US.<span data-local-only hidden> Local delivery is free in the Denver area (ZIP code 80015).</span> Costs, timing and returns are on our <a href="../shipping-returns.html">Shipping &amp; Returns</a> page.</div></details>
+        <details><summary>Shipping &amp; returns</summary><div class="inner">We ship within the US.<span data-local-only hidden> Local delivery is free in much of the Denver metro area.</span> Costs, timing and returns are on our <a href="../shipping-returns.html">Shipping &amp; Returns</a> page.</div></details>
       </div>
     </div>
   </div>
@@ -548,7 +548,7 @@ faqs = [
     ("How do I wash them?", "Machine wash cold, inside out, with like colors. Tumble dry low or hang to dry. Skip the bleach."),
     ("Will they shrink?", "Cotton can shrink a little in a hot dryer. Washing cold and drying low keeps them closest to their original size."),
     ("Where do you ship?", 'Within the United States. Details are on our <a href="shipping-returns.html">Shipping &amp; Returns</a> page.'),
-    ("Do you deliver locally?", 'LOCAL::Local delivery is free in the Denver area (ZIP code 80015). We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping. <a href="shipping-returns.html#local-delivery">Check your ZIP</a>.'),
+    ("Do you deliver locally?", 'LOCAL::Local delivery is free in much of the Denver metro area. We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping. <a href="shipping-returns.html#local-delivery">Check your ZIP</a>.'),
     ("Can I order now?", 'Yes — pre-orders for our first drop are open. Pick a size, add it to your bag and send a request. You won’t be charged when you submit a request. We’ll email you to confirm what’s in stock, how you’ll receive your order, and your total, along with instructions for paying.'),
     ("When will my pre-order ship?", 'We’ll share the timing when we email to confirm your pre-order, and we’ll let you know if anything changes.'),
     ("Who is Jude?", 'A kid who wanted better pajamas, so he started a company. <a href="our-story.html">Read our story</a>.'),
@@ -577,7 +577,7 @@ ship = """<section class="page-head"><div class="wrap"><p class="eyebrow">Shippi
 <p>Shipping costs and delivery times are shown at checkout before you pay.</p>
 <div data-local-only hidden>
 <h2 id="local-delivery">Local delivery</h2>
-<p>Local delivery is free in the Denver area (ZIP code 80015). We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping.</p>
+<p>Local delivery is free in much of the Denver metro area. We group deliveries into one weekly window. If your address isn’t eligible, you can still choose shipping.</p>
 <form class="zip-check" data-zip-check novalidate>
 <label for="zip-in">Check your ZIP code</label>
 <div class="zip-row"><input id="zip-in" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required><button class="btn pill" type="submit">Check</button></div>
@@ -591,7 +591,7 @@ ship = """<section class="page-head"><div class="wrap"><p class="eyebrow">Shippi
 <p>Our full return policy will be posted here before pre-orders ship.</p>
 </div></section>"""
 page("shipping-returns.html", "Shipping, Local Delivery & Returns | Hey Jude",
-     "Hey Jude ships within the U.S., offers free local delivery in the Denver area (ZIP 80015), and handles returns and size swaps by mail.", ship)
+     "Hey Jude ships within the U.S., offers free local delivery in much of the Denver metro area, and handles returns and size swaps by mail.", ship)
 
 # ---------------- CONTACT ----------------
 contact = """<section class="page-head centered-head"><div class="wrap"><p class="eyebrow">Contact</p><h1>Get in touch</h1>
@@ -819,7 +819,7 @@ prio = {"index.html": "1.0", "shop.html": "0.9", "products/flower-set.html": "0.
 _prices = sorted({it["priceCents"] for it in _CATALOG.get("items", []) if it.get("available") is True and isinstance(it.get("priceCents"), int)})
 _price = ("$" + (f"{_prices[0] // 100}" if _prices[0] % 100 == 0 else f"{_prices[0] / 100:.2f}") + (" and up" if len(_prices) > 1 else "") + " per set") if _prices else "price to be announced"
 _ld = _CATALOG.get("localDelivery", {})
-_local = (("Local delivery is free" if _ld.get('feeCents') == 0 else f"Local delivery is ${_ld['feeCents'] / 100:.2f}") + f" in the Denver area (ZIP {', '.join(_ld['zips'])}); everywhere else in the U.S. ships." if _ld.get("enabled") else "Ships within the U.S.")
+_local = (("Local delivery is free" if _ld.get('feeCents') == 0 else f"Local delivery is ${_ld['feeCents'] / 100:.2f}") + f" in much of the Denver metro area (about a 45-minute drive; eligible ZIP codes: {', '.join(_ld['zips'])}); everywhere else in the U.S. ships." if _ld.get("enabled") else "Ships within the U.S.")
 (ROOT / "llms.txt").write_text(f"""# Hey Jude Cotton Clothing Company
 
 > Hey Jude makes 100% cotton pajamas for kids in sizes 4–12, in prints picked by a kid. Tagline: Pajamas by kids, for kids. Website: {SITE}/
