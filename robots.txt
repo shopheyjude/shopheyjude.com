@@ -1,3 +1,4 @@
 # Private preview — keep out of search engines until launch.
+# To open the site to search: set INDEXABLE = True in tools/build.py and rebuild.
 User-agent: *
 Disallow: /
