@@ -265,7 +265,7 @@ home = f"""<section class="hero" aria-labelledby="hero-h">
   <span class="mock-tag hero-tag">Preview image</span>
   <div class="wrap hero-wrap">
     <div class="hero-copy">
-      <p class="eyebrow">Pajamas by kids, for kids</p>
+      <p class="eyebrow">Cotton pajamas by kids, for kids</p>
       <h1 id="hero-h"><span class="nowrap">Soft Sleep.</span><br><span class="nowrap">Happy Dreams.</span><br><span class="nowrap">Better Tomorrows.</span></h1>
       <p class="lede">Soft pajamas for blanket forts, bedtime stories, and mornings when getting dressed can wait.</p>
       <div class="btn-row">
