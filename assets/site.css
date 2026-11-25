@@ -460,3 +460,4 @@ input.vh { padding: 0 !important; border: 0 !important; margin: -1px !important;
 .bag-done h2 { margin-bottom: 10px; }
 .btn.pill[disabled], .btn.pill:disabled { background: #D9D3C9; border-color: #D9D3C9; color: #5B5F68; cursor: not-allowed; box-shadow: none; }
 .test-banner { background: #FFF3C4; color: var(--navy); text-align: center; font-weight: 700; font-size: .9rem; padding: 10px 16px; }
+.bag-done h2:focus { outline: none; }
