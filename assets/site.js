@@ -263,8 +263,11 @@
     wireEmailForm(form, function (show) {
       var ep = C.signup && validUrl(C.signup.endpoint) ? C.signup.endpoint : null;
       if (!ep) { show("info", "Sign-up opens soon — nothing was sent yet. Please check back!"); return; }
-      fetch(ep, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" }, mode: "cors" })
-        .then(function (r) { if (!r.ok) throw 0; form.reset(); show("ok", "You’re on the list! Check your inbox to confirm."); })
+      var fd = new FormData(form);
+      if (C.signup.provider === "kit") { fd = new FormData(); fd.append("email_address", form.querySelector("input[type=email]").value.trim()); }
+      fetch(ep, { method: "POST", body: fd, headers: { "Accept": "application/json" }, mode: "cors" })
+        .then(function (r) { if (!r.ok) throw 0; return r.json().catch(function () { return {}; }); })
+        .then(function (j) { if (j && j.status && j.status !== "success") throw 0; form.reset(); show("ok", "You’re on the list! Check your inbox to confirm."); })
         .catch(function () { show("err", "Something went wrong and you weren’t signed up. Please try again."); });
     });
   });

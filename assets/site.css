@@ -505,3 +505,7 @@ input.vh { padding: 0 !important; border: 0 !important; margin: -1px !important;
   .story-intro { grid-template-columns: 1fr; }
   .story-photo { max-width: 420px; margin: 8px auto 0; }
 }
+.foot-logo { margin-bottom: 0; display: block; width: fit-content; }
+.foot-tag { margin-top: -4px; }
+.foot-social { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-top: 10px; border-radius: 50%; color: var(--navy); }
+.foot-social:hover { background: rgba(31,42,68,.06); }

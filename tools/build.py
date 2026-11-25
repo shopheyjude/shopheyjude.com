@@ -36,7 +36,7 @@ SITE = "https://shopheyjude.com"
 OG_IMG = SITE + "/assets/img/hey-jude-share-photo-logo-v5.jpg"
 OG_ALT = "Hey Jude logo above two kids laughing in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants."
 NOINDEX_PAGES = {"cart.html", "account.html", "404.html", "sustainability.html"}
-ORG = {"@type": "Organization", "@id": SITE + "/#org", "name": "Hey Jude Cotton Clothing Company", "alternateName": "Hey Jude",
+ORG = {"@type": "Organization", "@id": SITE + "/#org", "name": "Hey Jude Cotton Clothing Company", "alternateName": "Hey Jude", "sameAs": ["https://www.instagram.com/heyjude.us/"],
        "url": SITE + "/", "logo": SITE + "/assets/img/hey-jude-logo.png", "email": "hello@shopheyjude.com",
        "slogan": "Pajamas by kids, for kids"}
 
@@ -148,6 +148,7 @@ def footer(base):
       <div>
         <a class="foot-logo" href="{base}index.html"><img src="{base}assets/img/hey-jude-logo-stacked-2026-11.png" alt="Hey Jude — home"></a>
         <p class="foot-tag">Cotton pajamas by kids, for kids.</p>
+        <a class="foot-social" href="https://www.instagram.com/heyjude.us/" target="_blank" rel="noopener" aria-label="Hey Jude on Instagram"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       </div>
       <div>
         <h2>Shop</h2>
@@ -175,7 +176,7 @@ def footer(base):
         </ul>
       </div>
     </div>
-    <p class="foot-legal">&copy; 2027 Hey Jude LLC.</p>
+    <p class="foot-legal">&copy; 2027 Hey Jude, LLC</p>
   </div>
 </footer>
 <script src="{base}assets/site.js?v={ASSET_V}"></script>
@@ -382,7 +383,7 @@ shop = f"""<section class="page-head">
 </section>
 {signup("")}"""
 page("shop.html", "Shop Kids’ Cotton Pajamas, Sizes 4–12 | Hey Jude",
-     "Two 100% cotton pajama sets for kids in sizes XS–L (4–12): the Flower Set and the Checker Set. Pre-order now — nothing is charged today.",
+     "Two 100% cotton pajama sets for kids in sizes XS–L (4–12): the Flower Set and the Checker Set. Pre-order now — you won’t be charged when you submit a request.",
      shop, "shop.html",
      jsonld=ld({"@type": "ItemList", "name": "Hey Jude pajamas", "itemListElement": [
          {"@type": "ListItem", "position": i + 1, "url": clean_url("products/" + PRODUCTS[k]["slug"] + ".html"), "name": PRODUCTS[k]["label"]}
@@ -446,7 +447,7 @@ def product(key):
         </div>
         <div class="size-msg" role="status" aria-live="polite" tabindex="-1" data-o-msg></div>
         <div class="btn-row"><button class="btn pill" type="submit" data-o-add>Add to Bag</button></div>
-        <p class="ship-note"><strong>Pre-order:</strong> nothing is charged today. Send your request and we&rsquo;ll email you to confirm availability, delivery and your total, plus how to pay.</p>
+        <p class="ship-note"><strong>Pre-order:</strong> You won’t be charged when you submit a request. We’ll email you to confirm what’s in stock, how you’ll receive your order, and your total, along with instructions for paying.</p>
       </form>
 
       <div class="facts">
@@ -694,7 +695,7 @@ cart += """
   </div>
   <p class="sum-row" data-bag-fee-row hidden><span>Local delivery</span><strong data-bag-fee>Free</strong></p>
   <p class="sum-row sum-total"><span data-bag-total-label>Total before shipping</span><strong data-bag-total>$0.00</strong></p>
-  <p class="muted small bag-note"><strong>This is a pre-order request, not a purchase.</strong> Nothing is charged today. We&rsquo;ll email you to confirm availability, delivery and your total, and share payment details then.</p>
+  <p class="muted small bag-note"><strong>This is a pre-order request, not a purchase.</strong> You won’t be charged when you submit a request. We’ll email you to confirm what’s in stock, how you’ll receive your order, and your total, along with instructions for paying.</p>
   <div class="size-msg" role="status" aria-live="polite" tabindex="-1" data-bag-msg></div>
   <button class="btn pill btn-block" type="button" data-bag-start>Request to Order</button>
   <form class="request-form" data-request-form hidden novalidate>
@@ -833,7 +834,7 @@ _local = (("Local delivery is free" if _ld.get('feeCents') == 0 else f"Local del
 
 ## How ordering works
 - Pre-orders for the first drop are open on the website. Shoppers choose a size and quantity, add to their bag and send a pre-order request.
-- Nothing is charged on the website. Hey Jude emails to confirm availability, delivery and the total, and shares payment details then.
+- You won’t be charged when you submit a request. We’ll email you to confirm what’s in stock, how you’ll receive your order, and your total, along with instructions for paying.
 - {_local} Returns and exchanges are handled by mail; there is no physical store.
 
 ## More
