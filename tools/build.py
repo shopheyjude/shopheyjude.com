@@ -33,7 +33,7 @@ ASSET_V = _h.md5(b"".join((_R / f).read_bytes() for f in ["assets/site.css", "as
 # every page says noindex). True opens it up: indexable pages, sitemap, AI crawlers allowed.
 INDEXABLE = False
 SITE = "https://shopheyjude.com"
-OG_IMG = SITE + "/assets/img/hey-jude-share-photo-logo-v5.jpg"
+OG_IMG = SITE + "/assets/img/hey-jude-share-photo-logo-v7.jpg"
 OG_ALT = "Hey Jude logo above two kids laughing in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants."
 NOINDEX_PAGES = {"cart.html", "account.html", "404.html", "sustainability.html"}
 ORG = {"@type": "Organization", "@id": SITE + "/#org", "name": "Hey Jude Cotton Clothing Company", "alternateName": "Hey Jude", "sameAs": ["https://www.instagram.com/heyjude.us/"],
