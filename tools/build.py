@@ -26,16 +26,16 @@ HOME_SOCIAL = """<meta property="og:title" content="Pajamas by Kids, for Kids">
 <meta property="og:site_name" content="Hey Jude Cotton Clothing Company">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shopheyjude.com/">
-<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11b.jpg">
+<meta property="og:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11c.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Two kids in flower and checker pajamas laugh in a blanket fort.">
+<meta property="og:image:alt" content="Two kids laugh in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pajamas by Kids, for Kids">
 <meta name="twitter:description" content="Soft cotton pajamas in prints picked by a kid.">
-<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11b.jpg">
-<meta name="twitter:image:alt" content="Two kids in flower and checker pajamas laugh in a blanket fort.">"""
+<meta name="twitter:image" content="https://shopheyjude.com/assets/img/hey-jude-share-2026-11c.jpg">
+<meta name="twitter:image:alt" content="Two kids laugh in a blanket fort, one in ivory floral pajamas and one in sage checker pajama pants.">"""
 
 
 def head(title, desc, base, social=None):
@@ -507,7 +507,7 @@ contact = """<section class="page-head centered-head"><div class="wrap"><p class
 <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
 <p class="contact-alt">Prefer email? Write to us at <a href="mailto:hello@shopheyjude.com">hello@shopheyjude.com</a>.</p>
 </form>
-<img class="contact-art" src="assets/img/Hey-Jude-Contact-Page.webp" width="1536" height="1024" alt="">
+<img class="contact-art" src="assets/img/contact-portrait-2026-11.webp" width="1120" height="1400" alt="">
 </div></section>"""
 page("contact.html", "Contact | Hey Jude", "Contact Hey Jude.", contact)
 
